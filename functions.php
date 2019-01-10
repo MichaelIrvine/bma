@@ -131,8 +131,9 @@ function boni_maddison_architects_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// Google Font
-	wp_enqueue_style('bma-googlefonts', "https://fonts.googleapis.com/css?family=Oswald:300,400,500");
+	// Google Fonts
+	wp_enqueue_style('bma-googlefonts-lato', "https://fonts.googleapis.com/css?family=Lato:300,400,400i");
+	wp_enqueue_style('bma-googlefonts-EBGaramond', "https://fonts.googleapis.com/css?family=EB+Garamond:400,400i");
 	// Jquery Enqueue
 	wp_enqueue_script('jquery');
 }
@@ -190,3 +191,81 @@ if( function_exists('acf_add_options_page') ) {
     acf_add_options_page($args);
 
 }
+
+
+/**
+ * Custom Logo
+ */
+if( function_exists('acf_add_options_page') ) {
+    $args = array(
+          'page_title' => 'Custom Logo',
+		  'menu_title' => 'Custom Logo',
+		  'menu_slug'  => 'custom_logo',
+          'icon_url' => 'dashicons-format-image'
+          //other args
+      );
+    acf_add_options_page($args);
+}
+
+/**
+ * BMA Portfolio Projects ------
+ */
+
+ 
+ function bma_register_custom_post_types() {
+    $labels = array(
+        'name'               => _x( 'Portfolio', 'post type general name' ),
+        'singular_name'      => _x( 'Portfolio', 'post type singular name'),
+        'menu_name'          => _x( 'Portfolio', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Portfolio', 'add new on admin bar' ),
+        'add_new'            => _x( 'Add New', 'service' ),
+        'add_new_item'       => __( 'Add New Portfolio' ),
+        'new_item'           => __( 'New Portfolio' ),
+        'edit_item'          => __( 'Edit Portfolio' ),
+        'view_item'          => __( 'View Portfolio' ),
+        'all_items'          => __( 'All Portfolio' ),
+        'search_items'       => __( 'Search Portfolio' ),
+        'parent_item_colon'  => __( 'Parent Portfolio:' ),
+        'not_found'          => __( 'No Portfolio found.' ),
+        'not_found_in_trash' => __( 'No Portfolio found in Trash.' ),
+        'archives'           => __( 'Portfolio Archives'),
+        'insert_into_item'   => __( 'Uploaded to this Portfolio'),
+        'uploaded_to_this_item' => __( 'Portfolio Archives'),
+        'filter_item_list'   => __( 'Filter Portfolio list'),
+        'items_list_navigation' => __( 'Portfolio list navigation'),
+        'items_list'         => __( 'Portfolio list'),
+        'featured_image'     => __( 'Portfolio feature image'),
+        'set_featured_image' => __( 'Set Portfolio feature image'),
+        'remove_featured_image' => __( 'Remove Portfolio feature image'),
+        'use_featured_image' => __( 'Use as feature image'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_nav_menus'  => true,
+        'show_in_admin_bar'  => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'lookbooks' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+        'menu_icon'          => 'dashicons-migrate',
+    );
+    register_post_type( 'portfolio', $args );
+ }
+ add_action( 'init', 'bma_register_custom_post_types' );
+
+
+ /* Flush */
+
+     function universe_rewrite_flush() {
+        universe_register_custom_post_types();
+        flush_rewrite_rules();
+    }
+	register_activation_hook( __FILE__, 'universe_rewrite_flush' );

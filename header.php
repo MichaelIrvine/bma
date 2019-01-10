@@ -26,13 +26,24 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			?>
+			
+			<div class="custom-logo">
+				<a href="http://localhost:8888/BMA/">
+				<?php
+				$customLogo = get_field('custom_logo', 'option');
+				echo file_get_contents( $customLogo );
+				?>
+				</a>
+			</div>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'boni-maddison-architects' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<div class="rel">
+					<span></span>
+					<span></span>
+				</div>
+			</button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
