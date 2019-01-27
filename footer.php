@@ -14,17 +14,26 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+
+
 		<div class="copyright">
 			<?php
 				$currentYear = date('Y');
-
 				echo '<p class="footer-copyright">&copy;'; 
 				echo $currentYear; 
 				echo '</p>';
-
-				echo '<p class="copyright">Boni•Maddison Architects</p>';
+				echo '<p class="copyright"> | Boni•Maddison Architects</p>';
 			?>
 		</div>
+
+		<div class="mobile-cover">		
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'mobile-menu',
+				'menu_id'        => 'menu-mobile'
+			));
+		?>
+	</div> <!-- end of .mobile-cover --> 
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

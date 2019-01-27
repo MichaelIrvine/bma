@@ -1,0 +1,121 @@
+// About Page
+
+// .about-image-container {
+    
+// }
+
+
+//  -- History
+
+.about-history-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8%;
+
+    .about-history-text {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    max-width: 1000px;
+
+    h1 {
+        margin: 0 -5% 2%;
+        font-family: $font__serrif;
+        font-size: 3em;
+        font-weight: 300;
+        font-style: italic;
+        color: $white;
+        
+
+        @media screen and (max-width: 420px){
+            font-size: 2em;
+        }
+    }
+    
+    
+    p {
+        margin: 2% 5%;
+        color: $white;
+        font-family: $font__main;
+        font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+    
+
+    }
+} 
+
+.team {
+
+    .team-intro-text {
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        h1 {
+        margin: 0 -5% 2%;
+        font-family: $font__serrif;
+        font-size: 3em;
+        font-weight: 300;
+        font-style: italic;
+        color: $white;
+        
+        
+        @media screen and (max-width: 420px){
+            font-size: 2em;
+        }
+        
+        }
+
+        p {
+        margin: 2% 5%;
+        color: $white;
+        font-family: $font__main;
+        font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+        font-weight: 100;
+        letter-spacing: 1px;
+        }
+    }
+
+    ul.team-members {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10vh;
+        padding: 5vh;
+        
+
+        @media screen and (max-width: 420px){
+            flex-direction: column;
+        }
+        
+        .team-member-image {
+            width: 250px;
+            min-width: 175px;
+            margin-right: 5em;
+        }
+
+        .team-member-info {
+            width: 45%;
+
+            p {
+            // margin: 2% 5%;
+            color: $white;
+            font-family: $font__main;
+            font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+            font-weight: 100;
+            letter-spacing: 1px;
+            }
+
+            @media screen and (max-width: 450px){
+            width: 85%;
+            }
+        }
+    }
+}

@@ -7,7 +7,13 @@
     justify-content: flex-end;
     width: 100%;
     margin-right: 1em;
+    transition: opacity 1.5s ease-in;
+    
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        justify-content: flex-start;
 
+    }
        
         #primary-menu {
             list-style: none;
@@ -71,6 +77,7 @@
         left: 0;
         display: none;
         transition: opacity 0.5s ease-in-out;
+        background-color: $black;
     }
 
 }
