@@ -1,0 +1,49 @@
+.contact-main {
+    height: 100vh;
+    padding-top: 10vh;
+    display: flex;
+    padding-left: 10vh;
+
+    .contact-col-01 {
+        width: 30%;
+        margin-right: 2.5vw;
+    }
+
+    .contact-col-02 {
+        margin-left: 2.5vw;
+
+        h1 {
+        font-family: $font__serrif;
+        font-size: 3em;
+        font-weight: 300;
+        font-style: italic;
+        color: $white;
+        }
+
+        strong {
+            margin-bottom: 5vh;
+        }
+
+        a {
+        display: block;
+        text-decoration: none;
+
+        &:hover {
+            color: $white-hover;
+        }
+        }
+
+        a:last-child {
+            margin-bottom: 2vh;
+        }
+
+        p {
+        margin: 0;
+        color: $white;
+        font-family: $font__main;
+        font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+        font-weight: 100;
+        letter-spacing: 1px;
+        }
+    }
+}
