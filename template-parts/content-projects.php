@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php boni_maddison_architects_post_thumbnail(); ?>
+	
 
 	<div class="entry-content">
 		<?php

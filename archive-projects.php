@@ -1,11 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -15,11 +10,10 @@
 get_header();
 ?>
 
-	<div class="projects content-area">
-		<main id="main" class="projects-main">
-			<h1>Projects</h1>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
 
-			<h2 class="project-category-title">Commercial</h2>
+		<h2 class="project-category-title">Commercial</h2>
 				<?php
 				$args = array('post_type' => 'projects',
 											'posts_per_page' => -1,
@@ -34,27 +28,30 @@ get_header();
 												);
 
 
-				$works = new WP_Query( $args );
+				$projects = new WP_Query( $args );
 
-					if ($works->have_posts() ){
-						while($works->have_posts() ){
-							$works->the_post();
+					if ($projects->have_posts() ){
+						echo '<ul>';
 
+						while($projects->have_posts() ){
+							$projects->the_post();
+							echo '<li class="project-list-item">';
 							echo '<a class="project-link" href="';
 							the_permalink();
 							echo '">';
 							the_title();
 							echo '</a>';
-
+							echo '</li>';
 						}
 						wp_reset_postdata();
+						echo '</ul>';
 					}
 
 			?>
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
 get_sidebar();
 get_footer();
-

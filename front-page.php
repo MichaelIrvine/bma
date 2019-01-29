@@ -40,15 +40,15 @@ get_header();
 			<div class="fp-intro-about_row-1">
 				<?php the_field('front_page_intro'); ?>
 			</div>
-		</section>
-		<section class="about-section-images">
+		
+		<div class="about-section-images">
 			<?php 
 
 			$images = get_field('about_section_images');
 			$size = 'full';
 
 			if( $images ): ?>
-				<ul>
+				<ul class="fp-intro-gallery slick-gallery">
 					<?php foreach( $images as $image ): ?>
 						<li>
 							<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
@@ -58,6 +58,7 @@ get_header();
 			<?php endif; ?>
 
 		
+		</div>
 		</section>
 		<section class="fp-project-lists">
 		<!-- Front Page Project Lists -->
