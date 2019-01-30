@@ -147,6 +147,21 @@ function boni_maddison_architects_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'boni_maddison_architects_scripts' );
 
+
+function bma_gallery_scripts() {
+		
+    	wp_enqueue_style('bma-slicktheme', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick-theme.css', true);
+
+    	wp_enqueue_style('bma-slick', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick.css', true);
+    		
+    	wp_enqueue_script('bma-slickjs', get_stylesheet_directory_uri().'/slick-1.8.1/slick/slick.min.js', array('jquery'), '1', false);
+
+    	wp_enqueue_script('bma-slicksettings', get_stylesheet_directory_uri() . '/js/slicksettings.js', array('bma-slickjs'), '1', false);
+}
+
+add_action( 'wp_enqueue_scripts', 'bma_gallery_scripts' );
+
+
 /**
  * Implement the Custom Header feature.
  */

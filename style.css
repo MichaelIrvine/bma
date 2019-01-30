@@ -1027,14 +1027,6 @@ header#masthead {
       font-weight: 100;
       letter-spacing: 1px; }
 
-.about-section-images ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10em 2em; }
-  .about-section-images ul li img {
-    width: 500px; }
-
 .fp-project-lists {
   margin-bottom: 15%; }
 
