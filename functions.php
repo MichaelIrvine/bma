@@ -154,7 +154,7 @@ function bma_gallery_scripts() {
 
     	wp_enqueue_style('bma-slick', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick.css', true);
     		
-    	wp_enqueue_script('bma-slickjs', get_stylesheet_directory_uri().'/slick-1.8.1/slick/slick.min.js', array('jquery'), '1', false);
+    	wp_enqueue_script('bma-slickjs', get_stylesheet_directory_uri().'/slick-1.8.1/slick/slick.min.js', array('jquery'), '1', true);
 
     	wp_enqueue_script('bma-slicksettings', get_stylesheet_directory_uri() . '/js/slicksettings.js', array('bma-slickjs'), '1', false);
 }
@@ -225,6 +225,22 @@ if( function_exists('acf_add_options_page') ) {
 		  'menu_title' => 'Custom Logo',
 		  'menu_slug'  => 'custom_logo',
           'icon_url' => 'dashicons-format-image'
+          //other args
+      );
+    acf_add_options_page($args);
+}
+
+
+/**
+ * Project Section Gallery
+ */
+
+if( function_exists('acf_add_options_page') ) {
+    $args = array(
+          'page_title' => 'Project Gallery',
+		  'menu_title' => 'Project Gallery',
+		  'menu_slug'  => 'project-gallery',
+          'icon_url'   => 'dashicons-format-gallery'
           //other args
       );
     acf_add_options_page($args);

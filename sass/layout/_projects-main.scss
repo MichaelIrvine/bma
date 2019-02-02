@@ -1,0 +1,45 @@
+
+.project-container {
+
+    // max-width: 1200px;
+    display: flex;
+    justify-content: center;
+
+
+    .project-list-title {
+        display: inline-block;
+        font-family: $font__serrif;
+        font-size: 3em;
+        font-weight: 300;
+        font-style: italic;
+        color: $white;
+        margin: 0;
+
+        @media screen and (max-width: 420px){
+                font-size: 2em;
+        }
+        @media screen and (max-width: 320px){
+                font-size: 1.7em;
+        }
+    }
+
+
+
+    .project-content {
+        list-style: none;
+        margin-bottom: 5vh;
+
+        a {
+            text-decoration: none;
+            font-family: $font__main;
+            font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+            font-weight: 100;
+            letter-spacing: 1px; 
+
+            &:hover {
+                color: $white-hover;
+            }
+        }
+    }
+
+}

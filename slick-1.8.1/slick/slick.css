@@ -16,6 +16,9 @@
     -ms-touch-action: pan-y;
         touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
+    /* Styles to added by MFI */
+    max-width: 500px;
+    height: 500px;
 }
 
 .slick-list
