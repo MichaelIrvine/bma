@@ -12,40 +12,38 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
 		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				boni_maddison_architects_posted_on();
-				boni_maddison_architects_posted_by();
-				?>
-			</div><!-- .entry-meta -->
+		?>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	
-
-	<div class="entry-content">
+	<div class="project entry-content">
+		<section class="project-singular">
+		<div class="project-info">
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'boni-maddison-architects' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+			the_field('project_info')
+		?>
+		</div>
+		<div class="project-singular-gallery">
+			<?php 
 
+			$projectSingleImages = get_field('project_gallery');
+			$size = 'full';
+			
+			if( $projectSingleImages ): ?>
+				<ul class="fp-intro-gallery slick-gallery__projects">
+					<?php foreach( $projectSingleImages as $projectSingleImage ): ?>
+						<li>
+							<?php echo wp_get_attachment_image( $projectSingleImage['ID'], $size ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+
+			
+		</div>
+		</section>
+		<?php
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'boni-maddison-architects' ),
 			'after'  => '</div>',

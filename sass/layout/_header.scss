@@ -1,18 +1,22 @@
 header#masthead {
     height: 70px;
+    width: 90%;
     display: flex;
     padding-top: 3vh;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 999999;
+    z-index: 999;
+    margin: 0 auto;
     background-color: $black;
-    
+    border-bottom: 1px solid #3a3a3a;
+    transition: all 1s ease-in-out;
+
              
     @media screen and ( max-width: 768px ){
         flex-direction: column;
         height: 90px;
-        // position: relative;
+        width: 100%;
     }
 
     .site-branding {
@@ -22,7 +26,9 @@ header#masthead {
         .custom-logo {
 
             padding-left: 1em;
-
+            &:focus {
+                outline: none;
+            }
             }
         }
     }

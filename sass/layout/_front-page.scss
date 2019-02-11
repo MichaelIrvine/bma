@@ -6,19 +6,23 @@
     width: 100%;
     background-color: #000;
 
+
     .fp-hero-cover {
         width: 90%;
         height: 90vh;
         margin: 0 auto;
         background-color: $black;
         position: relative;
+
     }
 
     .fp-hero-text-wrapper {
         position: absolute;
-        top: 40%;
+        top: 50%;
+        transform: translateY(-50%);
         left: 50%;
         transition: opacity 1s ease-in;
+        
 
             .fp-hero-text_row-01 {
                 font-size: 4em;
@@ -59,86 +63,97 @@
     }
 
     .fp-image {
-    width: 100%;
-    height: 90vh;
+    width: 88%;
+    height: 80vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 0 auto;
-    }
+    margin: 2vh auto 0;
+    transition: opacity 0.7s ease-in;
+
+    @media screen and (min-width: 1420px){
+            width: 90%
+        }
+}
+
+
 }
 
 
 // Front Page About Section
-.fp-intro-about {
+.fp-about-section_row-1 {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 
     @media screen and (max-width: 768px ){
         flex-direction: column;
+        align-items: center;
     }
 
     .fp-intro-about_row-1 {
         display: flex;
-        padding: 2%;
         max-width: 500px;
         flex-direction: column;
-        z-index: 2;
+        border-top: 1px solid $white;
 
-        .fp-about_col-1 {
-        margin: 0 5%;
-        color: white;
+        p {
+        margin: 10% 5% 0 0;
+        color: $white;
         font-family: $font__main;
-        font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))); ;
+        font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (1600 - 300))); ;
         font-weight: 100;
         letter-spacing: 1px;
         }
 
-        .fp-about_col-2 {
-        margin: 0 5% 5%;
-        color: white;
-        font-family: $font__main;
-        font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-        font-weight: 100;
-        letter-spacing: 1px;        
-        }
     }
 
 }
 
-// Highlighted project images
-// .about-section-images {
+.fp-about-section_row-2 {
+    display: flex;
+    justify-content: space-evenly;
 
-//     ul {
-//     list-style: none;
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     grid-gap: 10em 2em;
+    @media screen and (max-width: 768px ){
+        flex-direction: column;
+        align-items: center;
+    }
 
-//     li {
+    .fp-intro-about_row-2 {
+        display: flex;
+        max-width: 500px;
+        flex-direction: column;
+        border-top: 1px solid $white;
 
-//         img {
-//             width: 500px;
-//         }
-//     }
+        p {
+        margin: 10% 0 0 5%;
+        color: $white;
+        font-family: $font__main;
+        font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (1600 - 300))); ;
+        font-weight: 100;
+        letter-spacing: 1px;
+        }
 
-//     }
-// }
+    }
 
+}
 
+.about-section-images_row-1, .about-section-images_row-2 {
+    width: 500px;
+}
 
 
 // Project Lists Section
+
+
+
 .fp-project-lists {
     margin-bottom: 15%;
 }
 
-
-
 .project-list-title {
     display: inline-block;
     font-family: $font__serrif;
-    font-size: 3em;
+    font-size: 2.25em;
     font-weight: 300;
     font-style: italic;
     color: $white;
@@ -152,8 +167,8 @@
 }
 
 .accordion {
-    width: 80%;
-    margin: 0 auto;
+    width: 45%;
+    margin-left: 10vw;
     border-bottom: 1px solid $white;
 
 

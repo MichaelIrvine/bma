@@ -17,20 +17,8 @@ get_header();
 
 	<div class="about content-area">
 		<main id="main" class="about-main">
-			<section class="about-history-text-container">
-				<div class="about-history-text">
-					<?php the_field('history_text'); ?>
-				</div>
-				<div class="history-image-02">
-				<?php 
-						$imageHistory2 = get_field('history_image_2');
-						if( !empty($imageHistory2) ): ?>
-						<img src="<?php echo $imageHistory2['url']; ?>" alt="<?php echo $imageHistory2['alt']; ?>" />
-					<?php endif; ?>
-				</div>
-			</section>
 			<section class="about-image-container">
-				<div class="about-image">
+				<div class="about-image hidden">
 					<?php 
 						$imageHistory = get_field('history_image');
 						if( !empty($imageHistory) ): ?>
@@ -38,7 +26,11 @@ get_header();
 					<?php endif; ?>
 				</div>
 			</section>
-			
+			<section class="about-history-text-container">
+				<div class="about-history-text">
+					<?php the_field('history_text'); ?>
+				</div>
+			</section>
 			<section class="team">
 			
 			<div class="team-intro-text">

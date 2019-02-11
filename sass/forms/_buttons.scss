@@ -36,10 +36,10 @@ input[type="submit"] {
 	z-index: 999999;
 	padding: 0;
     margin-left: 12px;
-    
+    display: none;
 
-	@media screen and ( min-width: 767px ){
-		display: none;
+	@media screen and ( max-width: 768px ){
+		display: block;
     }
 
   .open-menu {

@@ -1,12 +1,22 @@
 .contact-main {
-    height: 100vh;
-    padding-top: 10vh;
+    height: 80vh;
     display: flex;
-    padding-left: 10vh;
+    justify-content: center;
+    align-items: center;
+    
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
 
     .contact-col-01 {
-        width: 30%;
-        margin-right: 2.5vw;
+        width: 350px;
+        min-width: 175px;
+        
+
+        @media screen and (max-width: 600px){
+            display: none;
+        }
     }
 
     .contact-col-02 {

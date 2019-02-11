@@ -10,15 +10,20 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
+	<div class="projects projects-archive content-area">
+		<main id="main" class="projects-main">
+			<section class="project-archive-list">
 				<?php
 				$tax_terms = get_terms('project_types');
 
 				foreach($tax_terms as $tax_term) : 
 				?>
-				<h3 class="project-list-title"><?php echo $tax_term->name; ?></h3>	
+				<div class="project-container accordion">
+				
+				<div class="accordion-toggle">
+				<h3 class="project-list-title"><?php echo $tax_term->name; ?></h3>
+				<i class="fas fa-caret-down "></i>
+				</div>
 				<?php
 				$args = array('post_type' => 'projects',
 											'posts_per_page' => -1,
@@ -35,7 +40,7 @@ get_header();
 				$projects = new WP_Query( $args ); 
 				
 					if ($projects->have_posts() ){
-						echo '<ul>';
+						echo '<ul class="project-content accordion-content">';
 						while($projects->have_posts() ){
 							$projects->the_post();
 							echo '<li>';
@@ -48,13 +53,31 @@ get_header();
 						}
 						// wp_reset_postdata();
 						echo '</ul>';
-					}
+					} ?>
+					</div>
+				<?php
 				endforeach;
 			?>
+			</section>
+			<section class="project-archive-gallery">
+			<div class="projects-main-gallery-container">
+			<?php 
 
+			$images = get_field('project_page_gallery', 'option');
+			$size = 'full';
 
-
-
+			if( $images ): ?>
+				<ul class="projects-gallery slick-gallery">
+					<?php foreach( $images as $image ): ?>
+						<li>
+							<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+				
+			</div>
+			</section>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

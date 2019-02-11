@@ -1,25 +1,33 @@
+.projects-archive {
+    margin-top: 15vh;
+}
+
+.projects-main {
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 .project-container {
-
-    // max-width: 1200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-
-
+    
     .project-list-title {
         display: inline-block;
         font-family: $font__serrif;
-        font-size: 3em;
+        font-size: 2em;
         font-weight: 300;
         font-style: italic;
         color: $white;
         margin: 0;
 
         @media screen and (max-width: 420px){
-                font-size: 2em;
+                font-size: 1.7em;
         }
         @media screen and (max-width: 320px){
-                font-size: 1.7em;
+                font-size: 1em;
         }
     }
 
@@ -42,4 +50,8 @@
         }
     }
 
+}
+
+.project-archive-list {
+    width: 50%
 }

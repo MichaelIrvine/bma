@@ -27,3 +27,11 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+@mixin textSize_1 {
+	font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+@mixin textSize_2 {
+	font-size: calc(12px + (28 - 12) * ((100vw - 300px) / (1600 - 300)));
+}

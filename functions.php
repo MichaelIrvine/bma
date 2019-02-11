@@ -123,6 +123,10 @@ add_action( 'widgets_init', 'boni_maddison_architects_widgets_init' );
 function boni_maddison_architects_scripts() {
 	wp_enqueue_style( 'boni-maddison-architects-style', get_stylesheet_uri() );
 
+	    	wp_enqueue_style('bma-slicktheme', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick-theme.css', true);
+
+    	wp_enqueue_style('bma-slick', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick.css', true);
+
 	wp_enqueue_script( 'boni-maddison-architects-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'boni-maddison-architects-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -150,9 +154,7 @@ add_action( 'wp_enqueue_scripts', 'boni_maddison_architects_scripts' );
 
 function bma_gallery_scripts() {
 		
-    	wp_enqueue_style('bma-slicktheme', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick-theme.css', true);
 
-    	wp_enqueue_style('bma-slick', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick.css', true);
     		
     	wp_enqueue_script('bma-slickjs', get_stylesheet_directory_uri().'/slick-1.8.1/slick/slick.min.js', array('jquery'), '1', true);
 

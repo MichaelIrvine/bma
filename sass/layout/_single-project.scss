@@ -1,0 +1,90 @@
+.project-singular {
+    display: flex;
+    justify-content: space-evenly;
+    // height: 90vh;
+    margin-bottom: 10vh;
+   
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+    }
+
+    @media screen and (min-width: 1400px){
+        justify-content: center;
+    }
+
+    .project-info {
+        width: 40%;
+        padding: 5% 0 0 10%;
+        
+
+        @media screen and (min-width: 1400px){
+        width: 50%;
+        }
+        
+        @media screen and (max-width: 768px){
+        width: 75%;
+        margin: 0 auto;
+        padding: 5%;
+        }
+
+        h2 {
+        font-family: $font__serrif;
+        font-size: 2em;
+        font-weight: 300;
+        font-style: italic;
+        color: $white;
+        margin: 0;
+        border-bottom: 1px solid $white;
+
+        @media screen and (max-width: 420px){
+                font-size: 1.7em;
+        }
+        @media screen and (max-width: 320px){
+                font-size: 1em;
+        }
+        }
+
+        p {
+            font-family: $font__main;
+            font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+            font-weight: 100;
+            color: $white;
+            letter-spacing: 1px; 
+        }
+    }
+
+    .project-singular-gallery {
+        width: 60%;
+        padding: 2%;
+        margin-top: 5vh;
+
+        @media screen and (min-width: 1400px){
+        width: 50%;
+        }
+
+        @media screen and (max-width: 768px){
+        width: 75%;
+        margin: 0 auto;
+        }
+    }
+}
+
+
+
+.post-navigation {
+    margin: 0 15% 10%;
+
+    .nav-links {
+        font-family: $font__serrif;
+        font-size: 1.5em;
+        font-weight: 300;
+        font-style: italic;
+        color: $white;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+
+        &:hover {
+            color: $white-hover;
+        }
+    }
+}

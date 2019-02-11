@@ -1,6 +1,4 @@
 
-
-
 /**
  * Front Page
  */
@@ -13,6 +11,8 @@ const fpTitleTextWrap = document.querySelector(".fp-hero-text-wrapper");
 const fpTitleText = document.querySelectorAll(".fp-hero-text");
 // Select the body tag
 const body = document.querySelector('body');
+// Front Page Hero Image
+const fpHeroImage = document.querySelector('.fp-image');
 
 
 // Check if page is home page
@@ -25,19 +25,33 @@ if (body.classList.contains('home')){
     });    
     }, 2000);
 
+    setInterval(() => {
+    fpHeroImage.classList.replace("hidden", "hidden-darkest");
+    }, 3100 );
+    
+
 // On Scroll Fade Logo & Nav In - Fade Hero Text out
 window.addEventListener('scroll', function(){
+    if(window.scrollY >= 20){
+        fpHeroImage.classList.replace(
+          "hidden-darkest",
+          "semi-revealed"
+        );
+    }
    
     if (window.scrollY >= 50){
         bmaLogo.classList.replace('hidden', 'reveled');
         navMenu.classList.replace("hidden-half", "reveled");
         fpTitleTextWrap.classList.add('hidden')
     }
-});
-} else {
-    bmaLogo.classList.replace("hidden", "reveled");
-    navMenu.classList.replace("hidden-half", "reveled");
-}
+    });
+    } else {
+        bmaLogo.classList.replace("hidden", "reveled");
+        navMenu.classList.replace("hidden-half", "reveled");
+    }
+
+
+
 
 
 /**
@@ -54,4 +68,8 @@ $(function($) {
     });
 });
 
+
+
  }); // End of Jquery
+
+

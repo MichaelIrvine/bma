@@ -4,8 +4,16 @@
     opacity: 0;
 }
 
+.hidden-darkest {
+    opacity: 0.2;
+}
+
 .hidden-half {
     opacity: 0.4;
+}
+
+.semi-revealed {
+    opacity: 0.8;
 }
 
 .revealed {
