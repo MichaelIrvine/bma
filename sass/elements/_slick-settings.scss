@@ -14,6 +14,23 @@
 }
 
 /*
+** Main Projects Slick Sliders
+*/
+
+.slick-gallery__projects-main {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+}
+
+.slick-gallery__projects-main.slick-initialized {
+    visibility: visible;
+    opacity: 1;    
+}
+
+
+
+/*
 ** Single Project Sliders
 */
 .slick-gallery__projects {

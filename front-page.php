@@ -24,12 +24,17 @@ get_header();
 			<?php
 				 $fpImageCover = get_field('front_page_image')
 			?>
+			
 			<div class="fp-image hidden" style="background-image: url(<?php echo $fpImageCover; ?> )"></div>
 			
 			<div class="fp-hero-text-wrapper">
-			<span class="fp-hero-text fp-hero-text_row-01 hidden">Boni•Maddison
+			<!-- <span class="fp-hero-text fp-hero-text_row-01 hidden">Boni•Maddison
 				<span class="fp-hero-text fp-hero-text_seperator hidden"></span>
-				<span class="fp-hero-text fp-hero-text_row-02 hidden">Architects</span>
+				<span class="fp-hero-text fp-hero-text_row-02 hidden">Architects</span> -->
+				<?php
+				$logoTitle = get_field('front_page_title');
+				echo file_get_contents( $logoTitle );
+				?>
 			</span>
 			</div>
 			
@@ -78,17 +83,20 @@ get_header();
 		
 			</div>
 
-			<div class="fp-intro-about_row-2">
-				<?php the_field('front_page_intro_second_row'); ?>
-			</div>
+
 
 		</section>
 		<section class="fp-project-lists">
+			<div class="fp-intro-about_row-2">
+				<?php the_field('front_page_intro_second_row'); ?>
+			</div>
 				
 		<!-- Front Page Project Lists -->
 				<?php
 				$tax_terms = get_terms('project_types');
-
+				?>
+				<div class="project-list-container">
+				<?php
 				foreach($tax_terms as $tax_term) : 
 				?>
 				<div class="accordion">
@@ -131,7 +139,8 @@ get_header();
 				<?php
 				endforeach;
 			?>
-
+			</div> <!-- End of Project List Container-->
+			
 			<div class="project-list-image">
 				<?php 
 

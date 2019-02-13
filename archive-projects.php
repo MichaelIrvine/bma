@@ -13,12 +13,34 @@ get_header();
 	<div class="projects projects-archive content-area">
 		<main id="main" class="projects-main">
 			<section class="project-archive-list">
+
+				<div class="projects-main-gallery-container">
+					<?php 
+
+					$images = get_field('project_page_gallery', 'option');
+					$size = 'full';
+
+					if( $images ): ?>
+						<ul class="projects-gallery slick-gallery__projects-main">
+							<?php foreach( $images as $image ): ?>
+								<li>
+									<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
+						
+				</div>
+
+
 				<?php
 				$tax_terms = get_terms('project_types');
-
+				?>
+				<div class="project-list-container">
+				<?php
 				foreach($tax_terms as $tax_term) : 
 				?>
-				<div class="project-container accordion">
+				<div class="accordion">
 				
 				<div class="accordion-toggle">
 				<h3 class="project-list-title"><?php echo $tax_term->name; ?></h3>
@@ -40,7 +62,7 @@ get_header();
 				$projects = new WP_Query( $args ); 
 				
 					if ($projects->have_posts() ){
-						echo '<ul class="project-content accordion-content">';
+						echo '<ul class="accordion-content">';
 						while($projects->have_posts() ){
 							$projects->the_post();
 							echo '<li>';
@@ -56,28 +78,11 @@ get_header();
 					} ?>
 					</div>
 				<?php
-				endforeach;
-			?>
-			</section>
-			<section class="project-archive-gallery">
-			<div class="projects-main-gallery-container">
-			<?php 
-
-			$images = get_field('project_page_gallery', 'option');
-			$size = 'full';
-
-			if( $images ): ?>
-				<ul class="projects-gallery slick-gallery">
-					<?php foreach( $images as $image ): ?>
-						<li>
-							<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
+				endforeach;?>
+				</div> <!-- End Project List Container -->
 				
-			</div>
 			</section>
+		
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

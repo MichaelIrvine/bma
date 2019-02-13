@@ -8,47 +8,69 @@ const bmaLogo = document.querySelector(".site-branding");
 const navMenu = document.querySelector(".main-navigation");
 // Hero Image Text
 const fpTitleTextWrap = document.querySelector(".fp-hero-text-wrapper");
-const fpTitleText = document.querySelectorAll(".fp-hero-text");
+// Array for different layers of logo SVG 
+const svgLayerArr = [
+  document.querySelector(".fp-hero-text-wrapper svg #Layer_1"),
+  document.querySelector(".fp-hero-text-wrapper svg #Layer_2"),
+  document.querySelector(".fp-hero-text-wrapper svg #Layer_3")
+];
 // Select the body tag
 const body = document.querySelector('body');
 // Front Page Hero Image
 const fpHeroImage = document.querySelector('.fp-image');
 
 
+const heroFader = function(){
 // Check if page is home page
 if (body.classList.contains('home')){
-//  Fade in BMA on load
-// Wait a few seconds before transitions happen
-    setInterval(() => {
-    fpTitleText.forEach(element => {
-    element.classList.replace("hidden","revealed");
-    });    
-    }, 2000);
+        //  Fade in BMA on load
+        svgLayerArr.forEach(element => {
+        element.classList.add("active");
+        });    
 
-    setInterval(() => {
-    fpHeroImage.classList.replace("hidden", "hidden-darkest");
-    }, 3100 );
-    
+        setTimeout(() => {
+        fpHeroImage.classList.replace("hidden", "hidden-darkest");
+        }, 2800);
+    }
+}
+
+window.addEventListener('load',heroFader);
 
 // On Scroll Fade Logo & Nav In - Fade Hero Text out
-window.addEventListener('scroll', function(){
-    if(window.scrollY >= 20){
-        fpHeroImage.classList.replace(
-          "hidden-darkest",
-          "semi-revealed"
-        );
+const scrollTransition = function(){
+    if (body.classList.contains("home")) {
+    if (window.scrollY >= 20) {
+        fpHeroImage.classList.replace("hidden-darkest", "semi-revealed");
     }
-   
-    if (window.scrollY >= 50){
-        bmaLogo.classList.replace('hidden', 'reveled');
+
+    if (window.scrollY >= 50) {
+        bmaLogo.classList.replace("hidden", "reveled");
         navMenu.classList.replace("hidden-half", "reveled");
-        fpTitleTextWrap.classList.add('hidden')
-    }
-    });
+        fpTitleTextWrap.classList.add("hidden");
     } else {
         bmaLogo.classList.replace("hidden", "reveled");
         navMenu.classList.replace("hidden-half", "reveled");
+        }
     }
+
+}
+
+window.addEventListener('scroll', scrollTransition);
+
+
+/**
+ * Header Display for every other page
+ */
+
+
+const showHeader = function() {
+    if (!body.classList.contains("home")){
+      bmaLogo.classList.replace("hidden", "reveled");
+      navMenu.classList.replace("hidden-half", "reveled");    
+    }
+};
+
+window.addEventListener("load", showHeader);
 
 
 

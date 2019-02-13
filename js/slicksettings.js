@@ -12,6 +12,19 @@ jQuery(document).ready(function($) {
     arrows: false,
   });
 
+  $(".slick-gallery__projects-main").slick({
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000, // speed is in milliseconds
+    speed: 300,
+    adaptiveHeight: false,
+    fade: true,
+    arrows: false
+  });
+
   $(".slick-gallery__projects").slick({
     infinite: true,
     slidesToShow: 1,

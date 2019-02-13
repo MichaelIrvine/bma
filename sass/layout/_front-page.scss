@@ -9,7 +9,7 @@
 
     .fp-hero-cover {
         width: 90%;
-        height: 90vh;
+        height: 70vh;
         margin: 0 auto;
         background-color: $black;
         position: relative;
@@ -18,48 +18,47 @@
 
     .fp-hero-text-wrapper {
         position: absolute;
-        top: 50%;
+        top: 55%;
         transform: translateY(-50%);
-        left: 50%;
         transition: opacity 1s ease-in;
+        width: 100%;
+        display: flex;
+        justify-content: center;
         
+        svg {
+            max-width: 600px;
 
-            .fp-hero-text_row-01 {
-                font-size: 4em;
-                font-weight: 300;
-                color: $white;
-                transform: translateX(-50%);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: opacity 1s ease-in-out;
-
-                @media screen and (max-width: 420px){
-                    font-size: 3em;
-                }
-                @media screen and (max-width: 320px){
-                    font-size: 2.7em;
-                }
+            g#Layer_1 {
+                transition: opacity 1s ease-in;
+                transition-delay: 500ms;
+                opacity: 0;
             }
 
-            .fp-hero-text_seperator {
-                height: 1px;
-                width: 50%;
-                margin: 0 auto;
-                display: block;
-                background-color: $white;
-                transition: opacity 1s ease-in-out;
-                transition-delay: 0.5s
+            .active#Layer_1 {
+                opacity: 1;
             }
 
-            .fp-hero-text_row-02 {
-                font-size: 1em;
-                font-weight: 300;
-                color: $white;
-                transition: opacity 1s ease-in-out;
-                transition-delay: 1s
+            g#Layer_2 {
+                transition: opacity 1s ease-in;
+                transition-delay: 1000ms;
+                opacity: 0;
             }
+
+            .active#Layer_2 {
+                opacity: 1;
+            }
+
+            g#Layer_3 {
+                transition: opacity 1s ease-in;
+                transition-delay: 1500ms;
+                opacity: 0;
+            }
+
+            .active#Layer_3 {
+                opacity: 1;
+            }
+        }
+
     }
 
     .fp-image {
@@ -74,7 +73,7 @@
     @media screen and (min-width: 1420px){
             width: 90%
         }
-}
+    }
 
 
 }
@@ -83,7 +82,9 @@
 // Front Page About Section
 .fp-about-section_row-1 {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15%;
 
     @media screen and (max-width: 768px ){
         flex-direction: column;
@@ -92,15 +93,32 @@
 
     .fp-intro-about_row-1 {
         display: flex;
-        max-width: 500px;
         flex-direction: column;
-        border-top: 1px solid $white;
+        justify-content: center;
+        padding: 2%;
+        width: 80%;
+        max-width: 1000px;
+        margin: 0 auto 5vh;
+
+
+        h2 {
+            margin: 0 2%;
+            font-family: $font__serrif;
+            font-size: 3em;
+            font-weight: 300;
+            font-style: italic;
+            color: $white;
+            
+            @media screen and (max-width: 500px){
+                font-size: 2em;
+            }
+        }
 
         p {
-        margin: 10% 5% 0 0;
+        margin: 2% 5%;
         color: $white;
         font-family: $font__main;
-        font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (1600 - 300))); ;
+        font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         font-weight: 100;
         letter-spacing: 1px;
         }
@@ -109,20 +127,47 @@
 
 }
 
-.fp-about-section_row-2 {
+
+.about-section-images_row-1, .about-section-images_row-2 {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+// Project Lists Section
+
+.fp-project-lists {
+    margin-bottom: 15%;
     display: flex;
-    justify-content: space-evenly;
 
-    @media screen and (max-width: 768px ){
+    @media screen and (max-width: 840px){
         flex-direction: column;
-        align-items: center;
     }
+    
+        .fp-intro-about_row-2 {
+        width: 20%;
+        text-align: right;
+        margin-right: 5%;
+        margin-top: 15px;
+        
+        @media screen and (max-width: 840px){
+        width: 100%;
+        text-align: left;
+        margin: 0 0 5% 3%;
+        }        
 
-    .fp-intro-about_row-2 {
-        display: flex;
-        max-width: 500px;
-        flex-direction: column;
-        border-top: 1px solid $white;
+        h2 {
+            margin: 0 2%;
+            font-family: $font__serrif;
+            font-size: 3em;
+            font-weight: 300;
+            font-style: italic;
+            color: $white;
+            
+            @media screen and (max-width: 500px){
+                font-size: 2.5em;
+            }
+        }
 
         p {
         margin: 10% 0 0 5%;
@@ -134,75 +179,69 @@
         }
 
     }
-
 }
 
-.about-section-images_row-1, .about-section-images_row-2 {
-    width: 500px;
-}
+.project-list-container {
+    width: 75%;
 
+    @media screen and (max-width: 840px){
+        width: 100%;
+        margin: 0 0 5% 3%;
+    }   
 
-// Project Lists Section
-
-
-
-.fp-project-lists {
-    margin-bottom: 15%;
-}
-
-.project-list-title {
-    display: inline-block;
-    font-family: $font__serrif;
-    font-size: 2.25em;
-    font-weight: 300;
-    font-style: italic;
-    color: $white;
-
-    @media screen and (max-width: 420px){
-            font-size: 2em;
-    }
-    @media screen and (max-width: 320px){
-            font-size: 1.7em;
-    }
-}
-
-.accordion {
-    width: 45%;
-    margin-left: 10vw;
-    border-bottom: 1px solid $white;
-
-
-    .fa-caret-down {
+    .project-list-title {
+        display: inline-block;
+        font-family: $font__serrif;
+        font-size: 2em;
+        font-weight: 300;
+        font-style: italic;
         color: $white;
-        margin-left: 0.7em;
-    }
-}
 
-
-.accordion-toggle {
-    display: inline-block;
-    cursor: pointer;
-}
-
-.accordion-toggle:hover * {
-    color: $white-hover
-}
-
-.accordion-content {
-    display: none;
-    list-style: none;
-    margin-bottom: 5vh;
-
-    a {
-        text-decoration: none;
-        font-family: $font__main;
-        font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-        font-weight: 100;
-        letter-spacing: 1px; 
-
-        &:hover {
-            color: $white-hover;
+        @media screen and (max-width: 420px){
+                font-size: 1.7em;
+        }
+        @media screen and (max-width: 320px){
+                font-size: 1.7em;
         }
     }
+
+    .accordion {
+        border-bottom: 1px solid $white;
+
+
+        .fa-caret-down {
+            color: $white;
+            margin-left: 0.7em;
+        }
+    }
+
+
+    .accordion-toggle {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .accordion-toggle:hover * {
+        color: $white-hover
+    }
+
+    .accordion-content {
+        display: none;
+        list-style: none;
+        margin-bottom: 5vh;
+
+        a {
+            text-decoration: none;
+            font-family: $font__main;
+            font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+            font-weight: 100;
+            letter-spacing: 1px; 
+
+            &:hover {
+                color: $white-hover;
+            }
+        }
+    }
+
 }
 
