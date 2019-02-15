@@ -2,12 +2,24 @@
 section.project-archive-list {
     display: flex;
     margin-top: 10vh;
-    margin-bottom: 5vh;
+    margin-bottom: 15vh;
+
+    @media screen and (max-width: 945px){
+        flex-direction: column;
+    }
 
 .project-list-container {
     width: 60%;
     padding: 0 5% 0;
     margin: 0 auto;
+
+    @media screen and (max-width: 945px){
+        width: 80%;
+    }
+
+    @media screen and (max-width: 545px){
+        width: 90%;
+    }
 
     .project-list-title {
         display: inline-block;
@@ -54,7 +66,6 @@ section.project-archive-list {
             text-decoration: none;
             font-family: $font__main;
             font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-            font-weight: 100;
             letter-spacing: 1px; 
 
             &:hover {
@@ -67,6 +78,10 @@ section.project-archive-list {
 
 .projects-main-gallery-container {
     margin-top: 45px;
+
+    @media screen and (max-width: 945px){
+     margin: 0 auto;   
+    }
 }
 
 

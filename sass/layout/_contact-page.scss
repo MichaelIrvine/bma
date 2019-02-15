@@ -9,18 +9,30 @@
         flex-direction: column;
     }
 
-    .contact-col-01 {
-        width: 350px;
-        min-width: 175px;
-        
+    .contact-hero {
+        max-width: 900px;
+        position: relative;
 
-        @media screen and (max-width: 600px){
-            display: none;
+        img {
+            transition: opacity 1000ms ease-in;
+            transition-delay: 800ms;
         }
+        
     }
 
-    .contact-col-02 {
-        margin-left: 2.5vw;
+    .contact-text-details {
+        position: absolute;
+        top: 10%;
+        left: 30px;
+        padding: 5% 4% 5% 3%;
+
+        transition: opacity 1s ease-in;
+
+        @media screen and (max-width: 600px) {
+        position: relative;
+        left: 0;
+        padding: 5%;
+        }
 
         h1 {
         font-family: $font__serrif;
@@ -28,6 +40,7 @@
         font-weight: 300;
         font-style: italic;
         color: $white;
+        border-bottom: 1px solid $white;
         }
 
         strong {
@@ -52,7 +65,6 @@
         color: $white;
         font-family: $font__main;
         font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-        font-weight: 100;
         letter-spacing: 1px;
         }
     }

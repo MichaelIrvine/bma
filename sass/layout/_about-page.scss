@@ -2,47 +2,68 @@
 
 //  -- History
 
-.about-history-text-container {
+.about-hero-container {
     display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-top: 8%;
     flex-direction: column;
+    margin-top: 10vh;
+
+    .about-title {
+        width: 950px;
+        margin: 0 auto;
+        padding: 2%;
+
+        font-family: $font__main;
+        font-size: 3em;
+        font-weight: 300;
+        color: $white;
+
+        transition: opacity 1s ease-in;
+        
+        @media screen and (max-width: 420px){
+            font-size: 2em;
+        }
+    }
+
+    .about-hero {
+        max-width: 950px;
+        padding: 2%;
+        margin: 0 auto;
+
+        img {
+            transition: opacity 1s ease-in;
+            transition-delay: 800ms;
+        }
+    }
     
         .about-history-text {
-        display: flex;
-        flex-direction: column;
         padding: 2%;
         width: 80%;
         max-width: 1000px;
-        margin-bottom: 5vh;
-
-        h1 {
-            margin: 0 2%;
-            font-family: $font__serrif;
-            font-size: 3em;
-            font-weight: 300;
-            font-style: italic;
-            color: $white;
-            
-            @media screen and (max-width: 420px){
-                font-size: 2em;
-            }
-        }
-        
+        margin: 5vh auto;
+        transition: opacity 1.2s ease-in;
         
         p {
-            margin: 2% 5%;
             color: $white;
             font-family: $font__main;
             font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1600 - 300)));
-            font-weight: 100;
             letter-spacing: 1px;
+
+            @media screen and (max-width: 768px){
+                opacity: 1;
+                font-weight: 200;
+            }
         }
 
     }
         
 } 
+
+
+.about-founders {
+    max-width: 950px;
+    margin: 0 auto;
+
+}
 
 .about-image {
     display: flex;
@@ -68,10 +89,9 @@
         margin: 0 auto;
 
         h1 {
-        font-family: $font__serrif;
+        font-family: $font__main;
         font-size: 3em;
         font-weight: 300;
-        font-style: italic;
         color: $white;
         
         
@@ -86,7 +106,6 @@
         color: $white;
         font-family: $font__main;
         font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1600 - 300)));
-        font-weight: 100;
         letter-spacing: 1px;
         }
     }
@@ -141,7 +160,6 @@
             color: $white;
             font-family: $font__main;
             font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
-            font-weight: 100;
             letter-spacing: 1px;
             margin-block-start: 0;
             margin-block-end: 0;

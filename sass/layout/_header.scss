@@ -23,6 +23,9 @@ header#masthead {
         display: flex;
         transition: opacity 1s ease-in;
         
+        @media screen and (max-width: 768px){
+            opacity: 1;
+        }
         .custom-logo {
 
             padding-left: 1em;

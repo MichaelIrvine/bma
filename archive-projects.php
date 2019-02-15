@@ -11,7 +11,7 @@ get_header();
 ?>
 
 	<div class="projects projects-archive content-area">
-		<main id="main" class="projects-main">
+		<main id="main-projects" class="projects-main">
 			<section class="project-archive-list">
 
 				<div class="projects-main-gallery-container">
@@ -50,6 +50,7 @@ get_header();
 				$args = array('post_type' => 'projects',
 											'posts_per_page' => -1,
 											'hide_empty' => true,
+											'orderby' => 'term_order',											
 											'tax_query' => array( 
 												 	array(
 													'taxonomy' => 'project_types',

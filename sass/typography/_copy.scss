@@ -1,5 +1,10 @@
 p {
 	margin-bottom: 1.5em;
+	font-weight: 100;
+
+	@media screen and (max-width: 420px){
+		font-weight: 300;
+	}
 }
 
 dfn, cite, em, i {

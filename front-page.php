@@ -28,9 +28,6 @@ get_header();
 			<div class="fp-image hidden" style="background-image: url(<?php echo $fpImageCover; ?> )"></div>
 			
 			<div class="fp-hero-text-wrapper">
-			<!-- <span class="fp-hero-text fp-hero-text_row-01 hidden">Boni•Maddison
-				<span class="fp-hero-text fp-hero-text_seperator hidden"></span>
-				<span class="fp-hero-text fp-hero-text_row-02 hidden">Architects</span> -->
 				<?php
 				$logoTitle = get_field('front_page_title');
 				echo file_get_contents( $logoTitle );
@@ -48,19 +45,10 @@ get_header();
 		
 		<div class="about-section-images_row-1">
 			<?php 
-
-			$firstRowImages = get_field('about_section_images_first_row');
-			$size = 'full';
-
-			if( $firstRowImages ): ?>
-				<ul class="fp-intro-gallery slick-gallery">
-					<?php foreach( $firstRowImages as $firstRowImage ): ?>
-						<li>
-							<?php echo wp_get_attachment_image( $firstRowImage['ID'], $size ); ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
+				$fpAboutImage = get_field('about_section_images_first_row');
+					if( !empty($fpAboutImage) ): ?>
+					<img src="<?php echo $fpAboutImage['url']; ?>" alt="<?php echo $fpAboutImage['alt']; ?>" />
+				<?php endif; ?>
 		</div>
 		</section>
 

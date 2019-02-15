@@ -374,7 +374,11 @@ h1, h2, h3, h4, h5, h6 {
   clear: both; }
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  font-weight: 100; }
+  @media screen and (max-width: 420px) {
+    p {
+      font-weight: 300; } }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -451,11 +455,11 @@ table {
 .hidden {
   opacity: 0; }
 
-.hidden-darkest {
-  opacity: 0.2; }
-
 .hidden-half {
   opacity: 0.4; }
+
+.hidden-darkest {
+  opacity: 0.2; }
 
 .semi-revealed {
   opacity: 0.8; }
@@ -481,9 +485,24 @@ table {
 .slick-gallery__projects-main {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease; }
+  transition: opacity 1s ease;
+  max-width: 500px; }
 
 .slick-gallery__projects-main.slick-initialized {
+  visibility: visible;
+  opacity: 1; }
+
+/*
+** Main Projects Slick Sliders
+*/
+.slick-gallery__about {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+  max-width: 700px;
+  margin: 0 auto; }
+
+.slick-gallery__about.slick-initialized {
   visibility: visible;
   opacity: 1; }
 
@@ -662,7 +681,11 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: #ffffff; }
+  color: #ffffff;
+  font-weight: 100; }
+  @media screen and (max-width: 420px) {
+    a {
+      font-weight: 300; } }
   a:visited {
     color: #ffffff; }
   a:hover, a:focus, a:active {
@@ -684,7 +707,8 @@ a {
   @media screen and (max-width: 768px) {
     .main-navigation {
       flex-direction: column;
-      justify-content: flex-start; } }
+      justify-content: flex-start;
+      opacity: 1; } }
   .main-navigation #primary-menu {
     list-style: none;
     display: flex;
@@ -961,6 +985,9 @@ header#masthead {
   header#masthead .site-branding {
     display: flex;
     transition: opacity 1s ease-in; }
+    @media screen and (max-width: 768px) {
+      header#masthead .site-branding {
+        opacity: 1; } }
     header#masthead .site-branding .custom-logo {
       padding-left: 1em; }
       header#masthead .site-branding .custom-logo:focus {
@@ -1111,11 +1138,10 @@ header#masthead {
       color: white;
       font-family: "Lato", sans-serif;
       font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-      font-weight: 100;
       letter-spacing: 1px; }
 
 .about-section-images_row-1, .about-section-images_row-2 {
-  width: 500px;
+  max-width: 800px;
   margin: 0 auto; }
 
 .fp-project-lists {
@@ -1136,10 +1162,9 @@ header#masthead {
         margin: 0 0 5% 3%; } }
     .fp-project-lists .fp-intro-about_row-2 h2 {
       margin: 0 2%;
-      font-family: "EB Garamond", serif;
+      font-family: "Lato", sans-serif;
       font-size: 3em;
       font-weight: 300;
-      font-style: italic;
       color: white; }
       @media screen and (max-width: 500px) {
         .fp-project-lists .fp-intro-about_row-2 h2 {
@@ -1149,7 +1174,6 @@ header#masthead {
       color: white;
       font-family: "Lato", sans-serif;
       font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (1600 - 300)));
-      font-weight: 100;
       letter-spacing: 1px; }
 
 .project-list-container {
@@ -1194,36 +1218,48 @@ header#masthead {
       .project-list-container .accordion-content a:hover {
         color: rgba(255, 255, 255, 0.5); }
 
-.about-history-text-container {
+.about-hero-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 8%;
-  flex-direction: column; }
-  .about-history-text-container .about-history-text {
-    display: flex;
-    flex-direction: column;
+  flex-direction: column;
+  margin-top: 10vh; }
+  .about-hero-container .about-title {
+    width: 950px;
+    margin: 0 auto;
+    padding: 2%;
+    font-family: "Lato", sans-serif;
+    font-size: 3em;
+    font-weight: 300;
+    color: white;
+    transition: opacity 1s ease-in; }
+    @media screen and (max-width: 420px) {
+      .about-hero-container .about-title {
+        font-size: 2em; } }
+  .about-hero-container .about-hero {
+    max-width: 950px;
+    padding: 2%;
+    margin: 0 auto; }
+    .about-hero-container .about-hero img {
+      transition: opacity 1s ease-in;
+      transition-delay: 800ms; }
+  .about-hero-container .about-history-text {
     padding: 2%;
     width: 80%;
     max-width: 1000px;
-    margin-bottom: 5vh; }
-    .about-history-text-container .about-history-text h1 {
-      margin: 0 2%;
-      font-family: "EB Garamond", serif;
-      font-size: 3em;
-      font-weight: 300;
-      font-style: italic;
-      color: white; }
-      @media screen and (max-width: 420px) {
-        .about-history-text-container .about-history-text h1 {
-          font-size: 2em; } }
-    .about-history-text-container .about-history-text p {
-      margin: 2% 5%;
+    margin: 5vh auto;
+    transition: opacity 1.2s ease-in; }
+    .about-hero-container .about-history-text p {
       color: white;
       font-family: "Lato", sans-serif;
       font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1600 - 300)));
-      font-weight: 100;
       letter-spacing: 1px; }
+      @media screen and (max-width: 768px) {
+        .about-hero-container .about-history-text p {
+          opacity: 1;
+          font-weight: 200; } }
+
+.about-founders {
+  max-width: 950px;
+  margin: 0 auto; }
 
 .about-image {
   display: flex;
@@ -1241,10 +1277,9 @@ header#masthead {
   max-width: 1000px;
   margin: 0 auto; }
   .team .team-intro-text h1 {
-    font-family: "EB Garamond", serif;
+    font-family: "Lato", sans-serif;
     font-size: 3em;
     font-weight: 300;
-    font-style: italic;
     color: white; }
     @media screen and (max-width: 420px) {
       .team .team-intro-text h1 {
@@ -1254,7 +1289,6 @@ header#masthead {
     color: white;
     font-family: "Lato", sans-serif;
     font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (1600 - 300)));
-    font-weight: 100;
     letter-spacing: 1px; }
 .team ul.team-members {
   list-style: none;
@@ -1293,7 +1327,6 @@ header#masthead {
       color: white;
       font-family: "Lato", sans-serif;
       font-size: calc(14px + (22 - 14) * ((100vw - 300px) / (1600 - 300)));
-      font-weight: 100;
       letter-spacing: 1px;
       margin-block-start: 0;
       margin-block-end: 0; }
@@ -1309,45 +1342,63 @@ header#masthead {
   @media screen and (max-width: 600px) {
     .contact-main {
       flex-direction: column; } }
-  .contact-main .contact-col-01 {
-    width: 350px;
-    min-width: 175px; }
+  .contact-main .contact-hero {
+    max-width: 900px;
+    position: relative; }
+    .contact-main .contact-hero img {
+      transition: opacity 1000ms ease-in;
+      transition-delay: 800ms; }
+  .contact-main .contact-text-details {
+    position: absolute;
+    top: 10%;
+    left: 30px;
+    padding: 5% 4% 5% 3%;
+    transition: opacity 1s ease-in; }
     @media screen and (max-width: 600px) {
-      .contact-main .contact-col-01 {
-        display: none; } }
-  .contact-main .contact-col-02 {
-    margin-left: 2.5vw; }
-    .contact-main .contact-col-02 h1 {
+      .contact-main .contact-text-details {
+        position: relative;
+        left: 0;
+        padding: 5%; } }
+    .contact-main .contact-text-details h1 {
       font-family: "EB Garamond", serif;
       font-size: 3em;
       font-weight: 300;
       font-style: italic;
-      color: white; }
-    .contact-main .contact-col-02 strong {
+      color: white;
+      border-bottom: 1px solid white; }
+    .contact-main .contact-text-details strong {
       margin-bottom: 5vh; }
-    .contact-main .contact-col-02 a {
+    .contact-main .contact-text-details a {
       display: block;
       text-decoration: none; }
-      .contact-main .contact-col-02 a:hover {
+      .contact-main .contact-text-details a:hover {
         color: rgba(255, 255, 255, 0.5); }
-    .contact-main .contact-col-02 a:last-child {
+    .contact-main .contact-text-details a:last-child {
       margin-bottom: 2vh; }
-    .contact-main .contact-col-02 p {
+    .contact-main .contact-text-details p {
       margin: 0;
       color: white;
       font-family: "Lato", sans-serif;
       font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-      font-weight: 100;
       letter-spacing: 1px; }
 
 section.project-archive-list {
   display: flex;
   margin-top: 10vh;
-  margin-bottom: 5vh; }
+  margin-bottom: 15vh; }
+  @media screen and (max-width: 945px) {
+    section.project-archive-list {
+      flex-direction: column; } }
   section.project-archive-list .project-list-container {
     width: 60%;
     padding: 0 5% 0;
     margin: 0 auto; }
+    @media screen and (max-width: 945px) {
+      section.project-archive-list .project-list-container {
+        width: 80%; } }
+    @media screen and (max-width: 545px) {
+      section.project-archive-list .project-list-container {
+        width: 90%; } }
     section.project-archive-list .project-list-container .project-list-title {
       display: inline-block;
       font-family: "EB Garamond", serif;
@@ -1379,12 +1430,14 @@ section.project-archive-list {
         text-decoration: none;
         font-family: "Lato", sans-serif;
         font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-        font-weight: 100;
         letter-spacing: 1px; }
         section.project-archive-list .project-list-container .accordion-content a:hover {
           color: rgba(255, 255, 255, 0.5); }
   section.project-archive-list .projects-main-gallery-container {
     margin-top: 45px; }
+    @media screen and (max-width: 945px) {
+      section.project-archive-list .projects-main-gallery-container {
+        margin: 0 auto; } }
 
 .project-singular {
   display: flex;
@@ -1424,7 +1477,6 @@ section.project-archive-list {
     .project-singular .project-info p {
       font-family: "Lato", sans-serif;
       font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
-      font-weight: 100;
       color: white;
       letter-spacing: 1px; }
   .project-singular .project-singular-gallery {

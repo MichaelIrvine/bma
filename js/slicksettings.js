@@ -1,15 +1,15 @@
 jQuery(document).ready(function($) {
-  $(".slick-gallery").slick({
+  $(".slick-gallery__about").slick({
     dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // speed is in milliseconds
+    autoplaySpeed: 3000, 
     speed: 300,
     adaptiveHeight: false,
     fade: true,
-    arrows: false,
+    arrows: false
   });
 
   $(".slick-gallery__projects-main").slick({
@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // speed is in milliseconds
+    autoplaySpeed: 3000, 
     speed: 300,
     adaptiveHeight: false,
     fade: true,
@@ -30,9 +30,9 @@ jQuery(document).ready(function($) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // speed is in milliseconds
+    autoplaySpeed: 3000, 
     speed: 300,
-    adaptiveHeight: false,
+    adaptiveHeight: true,
     fade: true,
     arrows: true,
     dots: false,
@@ -49,5 +49,6 @@ jQuery(document).ready(function($) {
       }
     ]
   });
+
 });
 

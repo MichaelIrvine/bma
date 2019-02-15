@@ -21,6 +21,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease;
+    max-width: 500px;
 }
 
 .slick-gallery__projects-main.slick-initialized {
@@ -28,6 +29,24 @@
     opacity: 1;    
 }
 
+
+
+/*
+** Main Projects Slick Sliders
+*/
+
+.slick-gallery__about {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.slick-gallery__about.slick-initialized {
+    visibility: visible;
+    opacity: 1;    
+}
 
 
 /*
