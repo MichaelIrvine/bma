@@ -5,19 +5,24 @@
 // Header  -- Logo and Nav
 const bmaLogo = document.querySelector(".site-branding");
 const navMenu = document.querySelector(".main-navigation");
+
 // Hero Image Text
 const fpTitleTextWrap = document.querySelector(".fp-hero-text-wrapper");
+
 // Array for different layers of logo SVG
 const svgLayerArr = [
   document.querySelector(".fp-hero-text-wrapper svg #Layer_1"),
   document.querySelector(".fp-hero-text-wrapper svg #Layer_2"),
   document.querySelector(".fp-hero-text-wrapper svg #Layer_3")
 ];
+
 // Select the body tag
 const body = document.querySelector("body");
+
 // Front Page Hero Image
 const fpHeroImage = document.querySelector(".fp-image");
 
+// Fades in Front Page Hero
 const heroFader = function() {
   // Check if page is home page
   if (body.classList.contains("home")) {
@@ -90,7 +95,7 @@ const aboutImgFade = function() {
     window.addEventListener("scroll", function() {
       const aboutText = document.querySelector(".about-history-text");
 
-      if (window.scrollY >= 400) {
+      if (window.scrollY >= 200) {
         aboutText.classList.replace("hidden", "revealed");
       }
     });
@@ -107,8 +112,8 @@ window.addEventListener("load", aboutImgFade);
 
 const showHeader = function() {
   if (!body.classList.contains("home")) {
-    bmaLogo.classList.replace("hidden", "reveled");
-    navMenu.classList.replace("hidden-half", "reveled");
+    bmaLogo.classList.replace("hidden", "revealed");
+    navMenu.classList.replace("hidden-half", "revealed");
   }
 };
 

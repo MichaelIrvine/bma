@@ -7,23 +7,6 @@
     flex-direction: column;
     margin-top: 10vh;
 
-    .about-title {
-        width: 950px;
-        margin: 0 auto;
-        padding: 2%;
-
-        font-family: $font__main;
-        font-size: 3em;
-        font-weight: 300;
-        color: $white;
-
-        transition: opacity 1s ease-in;
-        
-        @media screen and (max-width: 420px){
-            font-size: 2em;
-        }
-    }
-
     .about-hero {
         max-width: 950px;
         padding: 2%;
@@ -32,7 +15,25 @@
         img {
             transition: opacity 1s ease-in;
             transition-delay: 800ms;
+
+            @media screen and (max-width: 420px){
+            opacity: 1;
+            }
         }
+
+        .about-title {
+            font-family: $font__main;
+            font-size: 3em;
+            font-weight: 300;
+            color: $white;
+
+            transition: opacity 1s ease-in;
+            
+            @media screen and (max-width: 420px){
+                opacity: 1;
+                font-size: 2em;
+            }
+        }        
     }
     
         .about-history-text {
@@ -41,6 +42,10 @@
         max-width: 1000px;
         margin: 5vh auto;
         transition: opacity 1.2s ease-in;
+
+        @media screen and (max-width: 420px){
+            opacity: 1;
+        }
         
         p {
             color: $white;
@@ -50,7 +55,6 @@
 
             @media screen and (max-width: 768px){
                 opacity: 1;
-                font-weight: 200;
             }
         }
 

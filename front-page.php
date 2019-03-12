@@ -52,28 +52,6 @@ get_header();
 		</div>
 		</section>
 
-		<section class="fp-about-section_row-2">
-		<div class="about-section-images_row-2">
-			<?php 
-
-			$secondRowImages = get_field('about_section_images_second_row');
-			
-
-			if( $secondRowImages ): ?>
-				<ul class="fp-intro-gallery slick-gallery">
-					<?php foreach( $secondRowImages as $secondRowImage ): ?>
-						<li>
-							<?php echo wp_get_attachment_image( $secondRowImage['ID'], $size ); ?>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
-		
-			</div>
-
-
-
-		</section>
 		<section class="fp-project-lists">
 			<div class="fp-intro-about_row-2">
 				<?php the_field('front_page_intro_second_row'); ?>
@@ -91,7 +69,7 @@ get_header();
 
 				<div class="accordion-toggle">
 					<h3 class="project-list-title"><?php echo $tax_term->name; ?></h3>
-					<i class="fas fa-caret-down fa-2x"></i>
+					<i class="fas fa-caret-down"></i>
 				</div>
 				<?php
 				$args = array('post_type' => 'projects',

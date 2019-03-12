@@ -16,6 +16,10 @@
         img {
             transition: opacity 1000ms ease-in;
             transition-delay: 800ms;
+
+            @media screen and (max-width: 600px) {
+            display: none;
+            }
         }
         
     }
@@ -52,7 +56,7 @@
         text-decoration: none;
 
         &:hover {
-            color: $white-hover;
+            color: #ca0901;
         }
         }
 

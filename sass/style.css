@@ -734,15 +734,6 @@ a {
         letter-spacing: 2px; }
         .main-navigation #primary-menu li a:hover {
           color: #c7c7c7; }
-      .main-navigation #primary-menu li a:after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 2px;
-        background-color: #ca0901;
-        transition: all 0.4s ease; }
-      .main-navigation #primary-menu li a:hover::after {
-        width: 45%; }
 
 .menu-item-has-children {
   position: relative; }
@@ -1000,6 +991,8 @@ header#masthead {
         opacity: 1; } }
     header#masthead .site-branding .custom-logo {
       padding-left: 1em; }
+      header#masthead .site-branding .custom-logo:focus {
+        outline: none; }
 
 .copyright {
   display: flex;
@@ -1007,8 +1000,7 @@ header#masthead {
   .copyright p {
     margin: 1% 0;
     font-size: 0.5em;
-    letter-spacing: 1px;
-    font-weight: 300; }
+    letter-spacing: 1px; }
 
 .mobile-cover {
   display: block;
@@ -1046,8 +1038,7 @@ header#masthead {
         font-size: 3em;
         -webkit-font-smoothing: antialiased;
         color: white;
-        text-decoration: none;
-        font-weight: 400; }
+        text-decoration: none; }
     .menu-mobile-menu-container #menu-mobile li.list-transition {
       transition: all 1s ease-in-out;
       transform: translateY(0);
@@ -1102,8 +1093,6 @@ header#masthead {
         transition: opacity 1s ease-in;
         transition-delay: 1500ms;
         opacity: 0; }
-        .fp-image-wrapper .fp-hero-text-wrapper svg g#Layer_3 g path {
-          fill: #ca0901; }
       .fp-image-wrapper .fp-hero-text-wrapper svg .active#Layer_3 {
         opacity: 1; }
   .fp-image-wrapper .fp-image {
@@ -1169,6 +1158,7 @@ header#masthead {
     margin-top: 15px; }
     @media screen and (max-width: 840px) {
       .fp-project-lists .fp-intro-about_row-2 {
+        width: 100%;
         text-align: left;
         margin: 0 0 5% 3%; } }
     .fp-project-lists .fp-intro-about_row-2 h2 {
@@ -1191,6 +1181,7 @@ header#masthead {
   width: 75%; }
   @media screen and (max-width: 840px) {
     .project-list-container {
+      width: 100%;
       margin: 0 0 5% 3%; } }
   .project-list-container .project-list-title {
     display: inline-block;
@@ -1231,6 +1222,19 @@ header#masthead {
   display: flex;
   flex-direction: column;
   margin-top: 10vh; }
+  .about-hero-container .about-title {
+    width: 950px;
+    margin: 0 auto;
+    padding: 2%;
+    font-family: "Lato", sans-serif;
+    font-size: 3em;
+    font-weight: 300;
+    color: white;
+    transition: opacity 1s ease-in; }
+    @media screen and (max-width: 420px) {
+      .about-hero-container .about-title {
+        opacity: 1;
+        font-size: 2em; } }
   .about-hero-container .about-hero {
     max-width: 950px;
     padding: 2%;
@@ -1241,16 +1245,6 @@ header#masthead {
       @media screen and (max-width: 420px) {
         .about-hero-container .about-hero img {
           opacity: 1; } }
-    .about-hero-container .about-hero .about-title {
-      font-family: "Lato", sans-serif;
-      font-size: 3em;
-      font-weight: 300;
-      color: white;
-      transition: opacity 1s ease-in; }
-      @media screen and (max-width: 420px) {
-        .about-hero-container .about-hero .about-title {
-          opacity: 1;
-          font-size: 2em; } }
   .about-hero-container .about-history-text {
     padding: 2%;
     width: 80%;
@@ -1267,7 +1261,8 @@ header#masthead {
       letter-spacing: 1px; }
       @media screen and (max-width: 768px) {
         .about-hero-container .about-history-text p {
-          opacity: 1; } }
+          opacity: 1;
+          font-weight: 200; } }
 
 .about-founders {
   max-width: 950px;
@@ -1360,9 +1355,6 @@ header#masthead {
     .contact-main .contact-hero img {
       transition: opacity 1000ms ease-in;
       transition-delay: 800ms; }
-      @media screen and (max-width: 600px) {
-        .contact-main .contact-hero img {
-          display: none; } }
   .contact-main .contact-text-details {
     position: absolute;
     top: 10%;
@@ -1387,7 +1379,7 @@ header#masthead {
       display: block;
       text-decoration: none; }
       .contact-main .contact-text-details a:hover {
-        color: #ca0901; }
+        color: rgba(255, 255, 255, 0.5); }
     .contact-main .contact-text-details a:last-child {
       margin-bottom: 2vh; }
     .contact-main .contact-text-details p {

@@ -52,6 +52,11 @@
                 transition: opacity 1s ease-in;
                 transition-delay: 1500ms;
                 opacity: 0;
+
+                g path {
+                    fill: #ca0901;
+                }
+
             }
 
             .active#Layer_3 {
@@ -101,33 +106,25 @@
         margin: 0 auto 5vh;
 
 
-        h2 {
+        h1 {
             margin: 0 2%;
-            font-family: $font__serrif;
+            font-family: $font__main;
             font-size: 3em;
             font-weight: 300;
-            font-style: italic;
             color: $white;
+            margin: 2% 5%;
             
             @media screen and (max-width: 500px){
                 font-size: 2em;
             }
         }
 
-        // .text-special {
-        // color: $white;
-        // font-family: $font__main;
-        // font-size: calc(18px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
-        // font-weight: 100;
-        // letter-spacing: 1px;
-        // }
 
         p {
         margin: 2% 5%;
         color: $white;
         font-family: $font__main;
         font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-        // font-weight: 100;
         letter-spacing: 1px;
         }
 
@@ -159,7 +156,7 @@
         margin-top: 15px;
         
         @media screen and (max-width: 840px){
-        width: 100%;
+        // width: 100%;
         text-align: left;
         margin: 0 0 5% 3%;
         }        
@@ -181,7 +178,6 @@
         color: $white;
         font-family: $font__main;
         font-size: calc(14px + (32 - 14) * ((100vw - 300px) / (1600 - 300))); ;
-        // font-weight: 100;
         letter-spacing: 1px;
         }
 
@@ -192,16 +188,15 @@
     width: 75%;
 
     @media screen and (max-width: 840px){
-        width: 100%;
+        // width: 100%;
         margin: 0 0 5% 3%;
     }   
 
     .project-list-title {
         display: inline-block;
-        font-family: $font__serrif;
+        font-family: $font__main;
         font-size: 2em;
         font-weight: 300;
-        font-style: italic;
         color: $white;
 
         @media screen and (max-width: 420px){

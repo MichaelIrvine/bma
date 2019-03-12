@@ -21,10 +21,6 @@ get_header();
 
 			the_post_navigation();
 
-			
-
-			
-
 		endwhile; // End of the loop.
 		?>
 

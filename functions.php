@@ -299,7 +299,57 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_icon'          => 'dashicons-migrate',
 		'taxonomies'          => array('project_types'),
     );
-    register_post_type( 'projects', $args );
+	register_post_type( 'projects', $args );
+	
+	// --- NEWS ------------------------
+
+	    $labels = array(
+        'name'               => _x( 'News', 'post type general name' ),
+        'singular_name'      => _x( 'News', 'post type singular name'),
+        'menu_name'          => _x( 'News', 'admin menu' ),
+        'name_admin_bar'     => _x( 'News', 'add new on admin bar' ),
+        'add_new'            => _x( 'Add New', 'News' ),
+        'add_new_item'       => __( 'Add New News' ),
+        'new_item'           => __( 'New News' ),
+        'edit_item'          => __( 'Edit News' ),
+        'view_item'          => __( 'View News' ),
+        'all_items'          => __( 'All News' ),
+        'search_items'       => __( 'Search News' ),
+        'parent_item_colon'  => __( 'Parent News:' ),
+        'not_found'          => __( 'No News found.' ),
+        'not_found_in_trash' => __( 'No News found in Trash.' ),
+        'archives'           => __( 'News Archives'),
+        'insert_into_item'   => __( 'Uploaded to this News'),
+        'uploaded_to_this_item' => __( 'News Archives'),
+        'filter_item_list'   => __( 'Filter News list'),
+        'items_list_navigation' => __( 'News list navigation'),
+        'items_list'         => __( 'News list'),
+        'featured_image'     => __( 'News feature image'),
+        'set_featured_image' => __( 'Set News feature image'),
+        'remove_featured_image' => __( 'Remove News feature image'),
+		'use_featured_image' => __( 'Use as feature image'),
+		
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_nav_menus'  => true,
+        'show_in_admin_bar'  => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'news' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+		'menu_icon'          => 'dashicons-archive',
+		// 'taxonomies'          => array('project_types'),
+    );
+    register_post_type( 'news', $args );
  }
  add_action( 'init', 'bma_register_custom_post_types' );
 

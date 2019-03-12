@@ -23,10 +23,9 @@ section.project-archive-list {
 
     .project-list-title {
         display: inline-block;
-        font-family: $font__serrif;
+        font-family: $font__main;
         font-size: 2em;
         font-weight: 300;
-        font-style: italic;
         color: $white;
 
         @media screen and (max-width: 420px){

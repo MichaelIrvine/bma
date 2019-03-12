@@ -18,8 +18,9 @@ get_header();
 	<div class="about content-area">
 		<main id="main-about" class="about-main">
 			<section class="about-hero-container">
-				<h1 class="about-title hidden">History Of BMA</h1>
+				
 				<div class="about-hero">
+					<h1 class="about-title hidden">History of BMA</h1>
 					<?php 
 					$image = get_field('history_image');
 					if( !empty($image) ): ?>

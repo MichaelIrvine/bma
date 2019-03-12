@@ -45,14 +45,19 @@
 
                     &:hover {color: #c7c7c7;}
 
-                    // @media screen and ( max-width: 601px ){
-                    // font-size: 1em;
-                    // }
+                }
 
-                    // @media screen and ( max-width: 500px ){
-                    // font-size: 0.75em;
-                    // }
+                a:after {
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: 2px;
+                        background-color: #ca0901;  
+                        transition: all 0.4s ease;
+                    }
 
+                a:hover::after{
+                width: 45%;
                 }
             }
 
