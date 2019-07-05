@@ -37,7 +37,7 @@ const heroFader = function() {
   }
 };
 
-window.addEventListener("load", heroFader);
+// window.addEventListener("load", heroFader);
 
 // On Scroll Fade Logo & Nav In - Fade Hero Text out
 const scrollTransition = function() {
@@ -57,7 +57,7 @@ const scrollTransition = function() {
   }
 };
 
-window.addEventListener("scroll", scrollTransition);
+// window.addEventListener("scroll", scrollTransition);
 
 /**
  * Contact Page

@@ -12,26 +12,13 @@ get_header();
 
 	<div class="projects projects-archive content-area">
 		<main id="main-projects" class="projects-main">
-			<section class="project-archive-list">
+			<div class="project-archive-column_1">
 
-				<div class="projects-main-gallery-container">
-					<?php 
+			<h1 class="project-archive-title">Projects</h1>
 
-					$images = get_field('project_page_gallery', 'option');
-					$size = 'full';
-
-					if( $images ): ?>
-						<ul class="projects-gallery slick-gallery__projects-main">
-							<?php foreach( $images as $image ): ?>
-								<li>
-									<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
-						
-				</div>
-
+			<div class="project-archive-paragraph">
+				<?php the_field('project_archive_text'); ?>
+			</div>
 
 				<?php
 				$tax_terms = get_terms('project_types');
@@ -82,8 +69,27 @@ get_header();
 				endforeach;?>
 				</div> <!-- End Project List Container -->
 				
-			</section>
-		
+			</div>
+
+			<div class="project-archive-column_2">
+				<div class="projects-main-gallery-container">
+					<?php 
+
+					$images = get_field('project_page_gallery', 'option');
+					$size = 'full';
+
+					if( $images ): ?>
+						<ul class="projects-gallery slick-gallery__projects-main">
+							<?php foreach( $images as $image ): ?>
+								<li>
+									<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
+						
+				</div>
+			</div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

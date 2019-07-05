@@ -17,24 +17,23 @@ get_header();
 
 	<div class="about content-area">
 		<main id="main-about" class="about-main">
-			<section class="about-hero-container">
-				
-				<div class="about-hero">
-					<h1 class="about-title hidden">History of BMA</h1>
-					<?php 
-					$image = get_field('history_image');
-					if( !empty($image) ): ?>
-						<img class="hidden" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-					<?php endif; ?>
-
-					<div class="about-history-text hidden">
-						<?php the_field('history_text'); ?>
-					</div>
+			<section class="about-intro">
+			<!-- About Section Row 1 -->
+			<div class="about-container_column-1">
+				<div class="about-history-text_row-1">
+					<h1 class="about-title">History of Boni•Maddison Architects</h1>
+					<?php the_field('history_text'); ?>
 				</div>
-				</section>	
 
-				<section class="about-founders">
-				<div class="history-image-02">
+				<div class="about-history-text_row-2">
+					<?php the_field('history_text_2'); ?>
+				</div>
+			</div>	
+
+			<!-- About div Row 2 -->
+			<div class="about-container_column-2">
+
+				<div class="about-image-02 ">
 			
 					<?php 
 
@@ -50,14 +49,26 @@ get_header();
 							<?php endforeach; ?>
 						</ul>
 					<?php endif; ?>
+
+					<div class="history-image-caption">
+						<?php the_field('history_image_caption'); ?>
+					</div>
 				</div>
-			</section>
-			
-			<section class="team">
-			
-			<div class="team-intro-text">
-				<?php the_field('team_text'); ?>
+
+				<div class="about-intro-image">
+					<?php 
+						$image = get_field('history_image');
+						if( !empty($image) ): ?>
+							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					<?php endif; ?>
+				</div>
+				<div class="history-image-caption">
+					<?php the_field('history_image_2_caption'); ?>
+				</div>
 			</div>
+			
+			</section>
+			<section class="team">
 
 			<div class="team-members-container">
 			<?php if( have_rows('team_members') ): ?>
@@ -77,7 +88,10 @@ get_header();
 				</ul>
 				<?php endwhile; ?>
 			<?php endif; ?>
-			</div>	
+			</div>
+			<div class="team-title_container">
+				<h2 class="team-title">Our Team</h2>
+			</div>
 			</section>
 		</main><!-- #main -->
 	</div><!-- #primary -->

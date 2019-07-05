@@ -1,0 +1,63 @@
+.single {
+
+    .site-main {
+        max-width: 950px;
+        margin: 10vh auto; 
+    }
+
+    .entry-title {
+    font-family: $font__main;
+    font-size: 3em;
+    font-weight: 300;
+    color: white;
+    margin-top: 0;
+
+        a {
+            text-decoration: none;
+            font-weight: 300;
+        }
+    }
+
+    article {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10vh 0 10vh 0;
+        border-bottom: 1px solid #3a3a3a;
+
+        @media screen and (max-width: 768px){
+            flex-direction: column;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+
+        p {
+        color: white;
+        font-family: $font__main;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        }
+
+        .entry-header {
+            flex: 50%;
+        }
+
+        .post-thumbnail {
+            flex: 50%;
+        }
+
+        .entry-content {
+        padding: 4em;
+        // width: 80%;
+        max-width: 1000px;
+        // margin: 5vh auto;
+        }
+
+        .posted-on {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+}
+

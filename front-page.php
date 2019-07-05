@@ -16,108 +16,87 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary-front-page" class="content-area front-page">
+		<main id="main_front-page" class="site-main-front-page">
 		
-		<section class="fp-image-wrapper">
-			<div class="fp-hero-cover">
-			<?php
-				 $fpImageCover = get_field('front_page_image')
-			?>
-			
-			<div class="fp-image hidden" style="background-image: url(<?php echo $fpImageCover; ?> )"></div>
-			
-			<div class="fp-hero-text-wrapper">
-				<?php
-				$logoTitle = get_field('front_page_title');
-				echo file_get_contents( $logoTitle );
-				?>
-			</span>
-			</div>
-			
+		<section class="fp-intro-container">
 
-			</div>	
-		</section>
-		<section class="fp-about-section_row-1">
-			<div class="fp-intro-about_row-1">
-				<?php the_field('front_page_intro_first_row'); ?>
-			</div>
-		
-		<div class="about-section-images_row-1">
+			<div class="fp-intro-image">
+
 			<?php 
-				$fpAboutImage = get_field('about_section_images_first_row');
-					if( !empty($fpAboutImage) ): ?>
-					<img src="<?php echo $fpAboutImage['url']; ?>" alt="<?php echo $fpAboutImage['alt']; ?>" />
-				<?php endif; ?>
-		</div>
+
+			$fpHero = get_field('hero_image');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+
+			if( $fpHero ) {
+				echo wp_get_attachment_image( $fpHero, $size );
+			}
+			?>
+
+			</div>
 		</section>
 
-		<section class="fp-project-lists">
-			<div class="fp-intro-about_row-2">
-				<?php the_field('front_page_intro_second_row'); ?>
+		<section class="fp-second-row">
+			<div class="fp-about-paragraph">
+				<?php the_field('front_page_about_paragraph'); ?>
 			</div>
-				
-		<!-- Front Page Project Lists -->
+			
+			<div class="fp-divider"></div>
+			
+			<!-- Front Page Project Lists -->
 				<?php
 				$tax_terms = get_terms('project_types');
 				?>
 				<div class="project-list-container">
-				<?php
-				foreach($tax_terms as $tax_term) : 
-				?>
-				<div class="accordion">
 
-				<div class="accordion-toggle">
-					<h3 class="project-list-title"><?php echo $tax_term->name; ?></h3>
-					<i class="fas fa-caret-down"></i>
-				</div>
-				<?php
-				$args = array('post_type' => 'projects',
-											'posts_per_page' => -1,
-											'hide_empty' => true,
-											'tax_query' => array( 
-												 	array(
-													'taxonomy' => 'project_types',
-													'field'    => 'slug',
-													'terms'    => $tax_term->name,
-											)
-										)
-									);
+				<h3 class="project-title">Projects</h3>
 
-				$projects = new WP_Query( $args ); 
-				
-					if ($projects->have_posts() ){
-						echo '<ul class="accordion-content">';
-						while($projects->have_posts() ){
-							$projects->the_post();
-							echo '<li>';
-							echo '<a href="';
-							the_permalink();
-							echo '">';
-							the_title();
-							echo '</a>';
-							echo '</li>';
-						}
-						wp_reset_postdata();
-						echo '</ul>';
-					} ?>
+					<?php
+					foreach($tax_terms as $tax_term) : 
+					?>
+					<div class="accordion">
+
+					<div class="accordion-toggle">
+						<a class="project-list-title"><?php echo $tax_term->name; ?></a>
+						<i class="fas fa-caret-down"></i>
 					</div>
-				<?php
-				endforeach;
-			?>
-			</div> <!-- End of Project List Container-->
-			
-			<div class="project-list-image">
-				<?php 
+					<?php
+					$args = array('post_type' => 'projects',
+												'posts_per_page' => -1,
+												'hide_empty' => true,
+												'tax_query' => array( 
+														array(
+														'taxonomy' => 'project_types',
+														'field'    => 'slug',
+														'terms'    => $tax_term->name,
+												)
+											)
+										);
 
-				$projectImage = get_field('project_lists_image');
-
-				// if( !empty($projectImage) ): ?>
-
-					<img src="<?php echo $projectImage['url']; ?>" alt="<?php echo $projectImage['alt']; ?>" />
-
-				<!--  -->
+					$projects = new WP_Query( $args ); 
+					
+						if ($projects->have_posts() ){
+							echo '<ul class="accordion-content">';
+							while($projects->have_posts() ){
+								$projects->the_post();
+								echo '<li>';
+								echo '<a href="';
+								the_permalink();
+								echo '">';
+								the_title();
+								echo '</a>';
+								echo '</li>';
+							}
+							wp_reset_postdata();
+							echo '</ul>';
+						} ?>
+						</div>
+					<?php
+					endforeach;
+				?>
 			</div>
+
+			</div> <!-- End of Project List Container-->
 
 		</section>
 		
@@ -125,5 +104,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

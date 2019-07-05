@@ -25,7 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'boni-maddison-architects' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding hidden">
+		<div class="site-branding">
 			
 			<div class="custom-logo">
 				<a href="http://localhost:8888/BMA/">
@@ -37,7 +37,7 @@
 			</div>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation hidden-half">
+		<nav id="site-navigation" class="main-navigation">
 			<button class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<div class="open-menu">
 					<span></span>

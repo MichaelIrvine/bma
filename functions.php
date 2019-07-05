@@ -46,6 +46,7 @@ if ( ! function_exists( 'boni_maddison_architects_setup' ) ) :
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'boni-maddison-architects' ),
 			'mobile-menu' => esc_html__( 'Mobile Menu', 'boni-maddison-architects' ),
+			'footer-menu' => esc_html__( 'Footer Menu', 'boni-maddison-architects' ),
 		) );
 
 		/*
@@ -121,6 +122,10 @@ add_action( 'widgets_init', 'boni_maddison_architects_widgets_init' );
  * Enqueue scripts and styles.
  */
 function boni_maddison_architects_scripts() {
+	// Google Fonts
+	wp_enqueue_style('bma-googlefonts-lato', "https://fonts.googleapis.com/css?family=Lato:100,300,400,400i");
+	wp_enqueue_style('bma-googlefonts-open-sans', "https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
+	
 	wp_enqueue_style( 'boni-maddison-architects-style', get_stylesheet_uri() );
 
 	    	wp_enqueue_style('bma-slicktheme', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick-theme.css', true);
@@ -135,9 +140,7 @@ function boni_maddison_architects_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// Google Fonts
-	wp_enqueue_style('bma-googlefonts-lato', "https://fonts.googleapis.com/css?family=Lato:100,300,400,400i");
-	wp_enqueue_style('bma-googlefonts-EBGaramond', "https://fonts.googleapis.com/css?family=EB+Garamond:400,400i");
+	
 	// Font Awesome
 	wp_enqueue_script( 'font-awesome', get_template_directory_uri() . '/node_modules/@fortawesome/fontawesome-free/js/all.js', array(), '20190110', true ); 
 	// Jquery Enqueue
@@ -300,56 +303,7 @@ if( function_exists('acf_add_options_page') ) {
 		'taxonomies'          => array('project_types'),
     );
 	register_post_type( 'projects', $args );
-	
-	// --- NEWS ------------------------
 
-	    $labels = array(
-        'name'               => _x( 'News', 'post type general name' ),
-        'singular_name'      => _x( 'News', 'post type singular name'),
-        'menu_name'          => _x( 'News', 'admin menu' ),
-        'name_admin_bar'     => _x( 'News', 'add new on admin bar' ),
-        'add_new'            => _x( 'Add New', 'News' ),
-        'add_new_item'       => __( 'Add New News' ),
-        'new_item'           => __( 'New News' ),
-        'edit_item'          => __( 'Edit News' ),
-        'view_item'          => __( 'View News' ),
-        'all_items'          => __( 'All News' ),
-        'search_items'       => __( 'Search News' ),
-        'parent_item_colon'  => __( 'Parent News:' ),
-        'not_found'          => __( 'No News found.' ),
-        'not_found_in_trash' => __( 'No News found in Trash.' ),
-        'archives'           => __( 'News Archives'),
-        'insert_into_item'   => __( 'Uploaded to this News'),
-        'uploaded_to_this_item' => __( 'News Archives'),
-        'filter_item_list'   => __( 'Filter News list'),
-        'items_list_navigation' => __( 'News list navigation'),
-        'items_list'         => __( 'News list'),
-        'featured_image'     => __( 'News feature image'),
-        'set_featured_image' => __( 'Set News feature image'),
-        'remove_featured_image' => __( 'Remove News feature image'),
-		'use_featured_image' => __( 'Use as feature image'),
-		
-    );
-
-    $args = array(
-        'labels'             => $labels,
-        'public'             => true,
-        'publicly_queryable' => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'show_in_nav_menus'  => true,
-        'show_in_admin_bar'  => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'news' ),
-        'capability_type'    => 'post',
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'menu_position'      => 20,
-        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
-		'menu_icon'          => 'dashicons-archive',
-		// 'taxonomies'          => array('project_types'),
-    );
-    register_post_type( 'news', $args );
  }
  add_action( 'init', 'bma_register_custom_post_types' );
 
@@ -427,3 +381,22 @@ function do_the_terms_in_order () {
     $wp_taxonomies['post_tag']->args = array( 'orderby' => 'term_order' );    
 }
 add_action( 'init', 'do_the_terms_in_order');
+
+
+// Excerpt Length
+function bma_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'bma_excerpt_length', 999 );
+
+
+// Specific Page Scripts
+function load_js_assets() {
+	// Preloader script for Home Page
+	if( is_page( 283 ) ) {
+			wp_enqueue_script( 'front-page', get_template_directory_uri() . '/js/frontPage.js', array('jquery'), '20190605', true );
+	}
+	
+}
+ 
+add_action('wp_enqueue_scripts', 'load_js_assets');

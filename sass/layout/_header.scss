@@ -1,15 +1,14 @@
 header#masthead {
     height: 70px;
-    width: 90%;
+    width: 100%;
     display: flex;
     padding-top: 3vh;
-    position: sticky;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 999;
     margin: 0 auto;
-    background-color: $black;
-    border-bottom: 1px solid #3a3a3a;
+    background-color: transparent;
     transition: all 1s ease-in-out;
 
              
