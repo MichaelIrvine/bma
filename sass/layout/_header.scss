@@ -1,8 +1,7 @@
 header#masthead {
-    height: 70px;
     width: 100%;
-    display: flex;
-    padding-top: 3vh;
+    padding-top: 2em;
+    padding-left: 2em;
     position: absolute;
     top: 0;
     left: 0;
@@ -16,6 +15,7 @@ header#masthead {
         flex-direction: column;
         height: 90px;
         width: 100%;
+        padding: 1em 0;
     }
 
     .site-branding {
@@ -27,6 +27,14 @@ header#masthead {
         }
         .custom-logo {
             padding-left: 1em;
+
+            svg {
+                g {
+                    path {
+                        fill: #ffffff;
+                    }
+                }
+            }
             }
         }
     }

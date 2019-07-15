@@ -3,10 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-top: 20vh;
 
     @media screen and (max-width: 600px) {
         flex-direction: column;
+        margin-top: 10vh;
     }
 
     .contact-hero {

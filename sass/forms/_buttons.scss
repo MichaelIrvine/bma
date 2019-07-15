@@ -28,7 +28,7 @@ input[type="submit"] {
 // --------------------------
 .mobile-menu-toggle {
 	position: relative;
-    background-color: $black;
+    background-color: transparent;
     height: 30px;
 	width: 30px;
 	cursor: pointer;
@@ -44,52 +44,37 @@ input[type="submit"] {
 
   .open-menu {
     position: absolute;
-	height: 30px;
-	width: 30px;
 	top: 0;
 
-		span {
-      	display: block;
-      	height: 2px;
-      	width: 15px;
-      	background-color: $white;
-		margin: 0 auto;
-  		}
-
-  		span:first-child {
-    	margin-bottom: 5px;
-  		}
+		p {
+		color: white;
+		font-family: $font__main;
+		font-size: 1.4em;
+		font-weight: 400;
+		letter-spacing: 1px;
+		margin: 0;
+		line-height: 1.3;
+		-webkit-font-smoothing: antialiased;
+		}
 
 	}
 
 	.close-menu {
 		position: absolute;
-		display: none;
-		height: 30px;
-		width: 30px;
-		top: 4px;
-    	left: 8px;
-
-		span {
-		position: absolute;
 		top: 0;
-		left: 0;
-      	display: block;
-      	height: 2px;
-      	width: 15px;
-      	background-color: $white;
-		margin: 0 auto;
-  		}
+		display: none;
 
-  		span:first-child {
-		transform-origin: 50%;
-    	transform: rotate(45deg);
-  		}
+		p {
+		color: white;
+		font-family: $font__main;
+		font-size: 1.4em;
+		font-weight: 400;
+		letter-spacing: 1px;
+		margin: 0;
+		line-height: 1.3;
+		-webkit-font-smoothing: antialiased;
+		}
 
-		span:last-child {
-		transform-origin: 50%;
-    	transform: rotate(-45deg);
-  		}
 	}
 
 }

@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-	<div id="primary-front-page" class="content-area front-page">
+	<div id="primary-front-page" class="content-area front-page transition-fade">
 		<main id="main_front-page" class="site-main-front-page">
 		
 		<section class="fp-intro-container">
@@ -33,11 +33,26 @@ get_header();
 			}
 			?>
 
+			<?php 
+
+			$fpHeroGalleryImages = get_field('hero_gallery');
+			$size = 'full';
+
+			if( $fpHeroGalleryImages ): ?>
+				<ul class="fp-hero-gallery slick-gallery__front-page">
+					<?php foreach( $fpHeroGalleryImages as $fpHeroGalleryImage ): ?>
+						<li>
+							<?php echo wp_get_attachment_image( $fpHeroGalleryImage['ID'], $size ); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+
 			</div>
 		</section>
 
 		<section class="fp-second-row">
-			<div class="fp-about-paragraph">
+			<div class="fp-about-paragraph hidden-up">
 				<?php the_field('front_page_about_paragraph'); ?>
 			</div>
 			
@@ -47,7 +62,7 @@ get_header();
 				<?php
 				$tax_terms = get_terms('project_types');
 				?>
-				<div class="project-list-container">
+				<div class="project-list-container hidden-up">
 
 				<h3 class="project-title">Projects</h3>
 

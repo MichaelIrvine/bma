@@ -28,7 +28,7 @@
 		<div class="site-branding">
 			
 			<div class="custom-logo">
-				<a href="http://localhost:8888/BMA/">
+				<a href="http://staging-bma.michaelirvinedesign.ca/">
 				<?php
 				$customLogo = get_field('custom_logo', 'option');
 				echo file_get_contents( $customLogo );
@@ -40,12 +40,10 @@
 		<nav id="site-navigation" class="main-navigation">
 			<button class="mobile-menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<div class="open-menu">
-					<span></span>
-					<span></span>
+					<p>MENU</p>
 				</div>
 				<div class="close-menu">
-					<span></span>
-					<span></span>
+					<p>CLOSE</p>
 				</div>
 			</button>
 			<?php

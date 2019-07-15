@@ -1,14 +1,25 @@
 //// Footer
 .site-footer {
-  margin: 2em;
-  border-top: 1px solid $white;
+  margin: 2em auto 0;
+  border-top: 1px solid $dark-grey;
+  
+
 
 .footer-row-1 {
   display: flex;
 
+    @media screen and (max-width: 810px){
+      flex-direction: column;
+    }
+
   .footer-col-1 {
     width: 50%;
     padding: 2em;
+
+    @media screen and (max-width: 810px){
+      width: 90%;
+      padding-left: 0.5em;
+    }
 
     h3.footer-menu-title {
       font-family: $font__main;
@@ -47,6 +58,11 @@
 
     .footer-contact-container {
       padding: 2em;
+
+      @media screen and (max-width: 810px){
+        width: 90%;
+        padding-left: 0.5em;
+      }
 
       h3 {
         font-family: $font__main;
@@ -87,6 +103,10 @@
       justify-content: flex-start;
       padding-left: 2em;
 
+      @media screen and (max-width: 810px){
+       padding: 0;
+      }
+
     p {
         margin: 1% 0;
         font-size: 0.5em;
@@ -103,6 +123,7 @@
   display: block;
   position: fixed;
   top: 0;
+  left: 0;
   height: 100vh;
   width: 100%;
   background: $black;
@@ -112,7 +133,7 @@
 }
 
 .mobile-cover.active {
-    opacity: 0.9;
+    opacity: 1;
     transform: translateX(0);
 }
 

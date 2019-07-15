@@ -20,12 +20,12 @@ get_header();
 			<section class="about-intro">
 			<!-- About Section Row 1 -->
 			<div class="about-container_column-1">
-				<div class="about-history-text_row-1">
+				<div class="about-history-text_row-1 hidden-up">
 					<h1 class="about-title">History of Boni•Maddison Architects</h1>
 					<?php the_field('history_text'); ?>
 				</div>
 
-				<div class="about-history-text_row-2">
+				<div class="about-history-text_row-2 hidden-up">
 					<?php the_field('history_text_2'); ?>
 				</div>
 			</div>	

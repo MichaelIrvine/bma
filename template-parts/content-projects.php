@@ -31,7 +31,7 @@
 			$size = 'full';
 			
 			if( $projectSingleImages ): ?>
-				<ul class="fp-intro-gallery slick-gallery__projects">
+				<ul class="single-project-gallery slick-gallery__projects">
 					<?php foreach( $projectSingleImages as $projectSingleImage ): ?>
 						<li>
 							<?php echo wp_get_attachment_image( $projectSingleImage['ID'], $size ); ?>

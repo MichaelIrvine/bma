@@ -13,6 +13,18 @@
     opacity: 1;    
 }
 
+
+.slick-gallery__front-page {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+}
+
+.slick-gallery__front-page.slick-initialized {
+    visibility: visible;
+    opacity: 1;    
+}
+
 /*
 ** Main Projects Slick Sliders
 */

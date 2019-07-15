@@ -10,8 +10,8 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	
+	<main id="main_single-project" class="single-project-main">
 
 		<?php
 		while ( have_posts() ) :
@@ -19,13 +19,12 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
 
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</main>
+	
 
 <?php
 get_sidebar();

@@ -12,13 +12,13 @@ get_header();
 
 	<div class="projects projects-archive content-area">
 		<main id="main-projects" class="projects-main">
-			<div class="project-archive-column_1">
+			<div class="project-archive-column_1 hidden-up">
 
 			<h1 class="project-archive-title">Projects</h1>
 
 			<div class="project-archive-paragraph">
-				<?php the_field('project_archive_text'); ?>
-			</div>
+				<?php the_field('project_archive_text', 'option'); ?>
+			</div>	
 
 				<?php
 				$tax_terms = get_terms('project_types');
@@ -71,7 +71,7 @@ get_header();
 				
 			</div>
 
-			<div class="project-archive-column_2">
+			<div class="project-archive-column_2 hidden-up">
 				<div class="projects-main-gallery-container">
 					<?php 
 

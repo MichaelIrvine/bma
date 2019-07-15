@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
   const $mobileCover = $(".mobile-cover");
   const $menuContainer = $(".menu-mobile-menu-container");
   const $mobileMenuItems = $menuContainer.find("li");
-  let menuState = false;
+
 
   $openMenu.click(function() {
     $(this).css("display", "none");

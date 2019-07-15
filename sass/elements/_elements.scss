@@ -10,6 +10,7 @@ html {
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	overflow-x: hidden;
 }
 
 hr {
@@ -31,7 +32,6 @@ figure {
 }
 
 @import "tables";
-// Transistion effects
-@import "fades";
+
 // Slick 
 @import "slick-settings";

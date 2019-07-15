@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary-news" class="content-area news hidden-up">
 		<main id="main" class="site-main">
 		<h1 class="news-title">News</h1>	
 

@@ -123,23 +123,30 @@ add_action( 'widgets_init', 'boni_maddison_architects_widgets_init' );
  */
 function boni_maddison_architects_scripts() {
 	// Google Fonts
-	wp_enqueue_style('bma-googlefonts-lato', "https://fonts.googleapis.com/css?family=Lato:100,300,400,400i");
-	wp_enqueue_style('bma-googlefonts-open-sans', "https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
-	
+	wp_enqueue_style('bma-googlefonts-open-sans', "https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+	wp_enqueue_style('bma-googlefonts-roboto', "https://fonts.googleapis.com/css?family=Roboto&display=swap");
+	// Main CSS
 	wp_enqueue_style( 'boni-maddison-architects-style', get_stylesheet_uri() );
-
-	    	wp_enqueue_style('bma-slicktheme', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick-theme.css', true);
-
-    	wp_enqueue_style('bma-slick', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick.css', true);
-
+	// Slick Slider CSS
+	wp_enqueue_style('bma-slicktheme', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick-theme.css', true);
+	wp_enqueue_style('bma-slick', get_stylesheet_directory_uri() . '/slick-1.8.1/slick/slick.css', true);
+	// Navigation
 	wp_enqueue_script( 'boni-maddison-architects-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
+	// Skip to Content
 	wp_enqueue_script( 'boni-maddison-architects-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	// Accordion for projects list
+	wp_enqueue_script( 'bma-accordion', get_template_directory_uri() . '/js/accordion.js', array(), '20190710', true );
 
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+
+	
+	// Slick Slider
+	wp_enqueue_script('bma-slickjs', get_stylesheet_directory_uri().'/slick-1.8.1/slick/slick.min.js', array('jquery'), '1', true);
+	wp_enqueue_script('bma-slicksettings', get_stylesheet_directory_uri() . '/js/slicksettings.js', array('bma-slickjs'), '1', false);
 	
 	// Font Awesome
 	wp_enqueue_script( 'font-awesome', get_template_directory_uri() . '/node_modules/@fortawesome/fontawesome-free/js/all.js', array(), '20190110', true ); 
@@ -148,23 +155,21 @@ function boni_maddison_architects_scripts() {
 	// Navigation
 	wp_enqueue_script( 'bma-navigation', get_template_directory_uri() . '/js/mobileNav.js', array(), '20190110', true );
 	// Main Script
-	wp_enqueue_script( 'bma-script', get_template_directory_uri() . '/js/bma-main.js', array(), '20190113', true );
-	
-
+	// wp_enqueue_script( 'bma-script', get_template_directory_uri() . '/js/bma-main.js', array(), '20190113', true );
+	// Waypoints
+	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/node_modules/waypoints/lib/noframework.waypoints.min.js', array(), '20190709', true );
 }
 add_action( 'wp_enqueue_scripts', 'boni_maddison_architects_scripts' );
 
 
-function bma_gallery_scripts() {
-		
+function pro_adding_scripts() {
 
-    		
-    	wp_enqueue_script('bma-slickjs', get_stylesheet_directory_uri().'/slick-1.8.1/slick/slick.min.js', array('jquery'), '1', true);
+	 wp_register_script('swup-pro-script', get_template_directory_uri() . '/node_modules/swup/dist/swup.js', array('jquery'), '1.2', false);
+	 wp_enqueue_script( 'swup-pro-script');
 
-    	wp_enqueue_script('bma-slicksettings', get_stylesheet_directory_uri() . '/js/slicksettings.js', array('bma-slickjs'), '1', false);
+	 wp_enqueue_script( 'boni-maddison-swup', get_template_directory_uri() . '/js/swup.js', array(), '20190712', true );
 }
-
-add_action( 'wp_enqueue_scripts', 'bma_gallery_scripts' );
+add_action( 'wp_enqueue_scripts', 'pro_adding_scripts' );
 
 
 /**
@@ -392,10 +397,28 @@ add_filter( 'excerpt_length', 'bma_excerpt_length', 999 );
 
 // Specific Page Scripts
 function load_js_assets() {
-	// Preloader script for Home Page
+	// Front Page Script
 	if( is_page( 283 ) ) {
 			wp_enqueue_script( 'front-page', get_template_directory_uri() . '/js/frontPage.js', array('jquery'), '20190605', true );
 	}
+	// About Page Script
+	if( is_page( 80 ) ) {
+			wp_enqueue_script( 'about-page', get_template_directory_uri() . '/js/aboutPage.js', array('jquery'), '20190605', true );
+	}
+	// Contact Page Script
+	if( is_page( 8 ) ) {
+			wp_enqueue_script( 'contact-page', get_template_directory_uri() . '/js/contactPage.js', array('jquery'), '20190605', true );
+	}
+	// Project Archive Page Script
+	if( is_post_type_archive( 'projects' ) ) {
+			wp_enqueue_script( 'projects-page', get_template_directory_uri() . '/js/projectsIndex.js', array('jquery'), '20190605', true );
+	}
+
+	// Project Archive Page Script
+	if( !is_front_page() && is_home() ) {
+			wp_enqueue_script( 'index-page', get_template_directory_uri() . '/js/newsIndex.js', array('jquery'), '20190605', true );
+	}
+
 	
 }
  

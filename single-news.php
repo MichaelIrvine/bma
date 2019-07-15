@@ -10,14 +10,12 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary-single-news" class="content-area single-news">
+		<main id="main-single-news" class="single-news-main">
 
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
-			// get_template_part( 'template-parts/content', get_post_type() );
 			get_template_part( 'template-parts/content', 'news' );
 
 			the_post_navigation();
@@ -34,5 +32,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

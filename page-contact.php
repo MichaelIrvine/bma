@@ -15,16 +15,16 @@
 get_header();
 ?>
 
-	<div id="primary" class="contact content-area">
+	<div id="primary-contact" class="contact content-area">
 		<main id="main-contact" class="contact-main">
 			<div class="contact-hero">
 				<?php 
 				$image = get_field('contact_image');
 				if( !empty($image) ): ?>
-					<img class="hidden" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					<img class="hidden-up" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 				<?php endif; ?>
 			
-			<div class="contact-text-details hidden">
+			<div class="contact-text-details hidden-up">
 				<?php the_field('contact_details'); ?>
 			</div>
 
